@@ -1,8 +1,13 @@
 {
   "name": "krazy-kat-peeking",
-  "version": "1.0.0",
-  "description": "scaffold",
+  "version": "0.0.1",
+  "description": "Bootstrapping a React project from scratch.",
+  "repository": "git@github.com:jasonconnysr/krazy-kay-peeking.git",
   "main": "index.js",
   "author": "Jason Conny",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "typescript": "^3.7.2"
+  }
 }
