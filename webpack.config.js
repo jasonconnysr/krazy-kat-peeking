@@ -144,20 +144,22 @@ module.exports = async (env = {}) => {
                             exclude: [/styles.scss/],
                             use: [
                                 {
-                                    loader: require.resolve('style-loader'),
-                                    options: {
-                                        injectType: 'singletonStyleTag'
-                                    }
+                                    loader: require.resolve('style-loader')
+                                },                                {
+                                    loader: require.resolve('@teamsupercell/typings-for-css-modules-loader')
                                 },
                                 {
-                                    loader: require.resolve('typings-for-css-modules-loader'),
+                                    loader: require.resolve('css-loader'),
                                     options: {
                                         importLoaders: 2,
                                         sourceMap: true,
-                                        modules: true,
-                                        namedExport: true,
-                                        camelCase: true,
-                                        localIdentName: '[name]__[local]--[hash:base64:5]' // default [hash:base64]
+                                        localsConvention: 'camelCase',
+                                        onlyLocals: isStageProd,
+                                        modules: {
+                                            mode: 'local',
+                                            localIdentName: '[name]__[local]--[hash:base64:5]',
+                                            hashPrefix: 'kkp',
+                                        }
                                     }
                                 },
                                 {
