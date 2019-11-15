@@ -3,10 +3,13 @@
     "version": "0.0.1",
     "description": "Bootstrapping a React project from scratch.",
     "repository": "git@github.com:jasonconnysr/krazy-kay-peeking.git",
-    "main": "index.js",
     "author": "Jason Conny",
     "license": "MIT",
     "private": true,
+    "browserslist": [
+        "> 2% in US or last 2 versions",
+        "not dead"
+    ],
     "dependencies": {
         "@teamsupercell/typings-for-css-modules-loader": "^2.0.0",
         "@types/history": "^4.7.3",
@@ -38,8 +41,9 @@
         "loglevel": "^1.6.6",
         "mini-css-extract-plugin": "^0.8.0",
         "node-sass": "^4.13.0",
-        "normalize.css": "^8.0.1",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "postcss-loader": "^3.0.0",
+        "postcss-normalize": "^8.0.1",
         "postcss-safe-parser": "^4.0.1",
         "react": "^16.12.0",
         "react-dev-utils": "^9.1.0",

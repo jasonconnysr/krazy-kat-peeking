@@ -4,6 +4,7 @@ const resolve = require('resolve');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
+const postcssNormalize = require('postcss-normalize');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -151,7 +152,7 @@ module.exports = async (env = {}) => {
                                 {
                                     loader: require.resolve('css-loader'),
                                     options: {
-                                        importLoaders: 2,
+                                        importLoaders: 3,
                                         sourceMap: true,
                                         localsConvention: 'camelCase',
                                         onlyLocals: isStageProd,
@@ -160,6 +161,16 @@ module.exports = async (env = {}) => {
                                             localIdentName: '[name]__[local]--[hash:base64:5]',
                                             hashPrefix: 'kkp',
                                         }
+                                    }
+                                },
+                                {
+                                    loader: require.resolve('postcss-loader'),
+                                    options: {
+                                        sourceMap: true,
+                                        ident: 'postcss',
+                                        plugins: () => [
+                                            postcssNormalize(/* pluginOptions */)
+                                        ]
                                     }
                                 },
                                 {
@@ -187,9 +198,19 @@ module.exports = async (env = {}) => {
                                 {
                                     loader: require.resolve('css-loader'),
                                     options: {
-                                        importLoaders: 2,
+                                        importLoaders: 3,
                                         sourceMap: true,
                                         modules: false
+                                    }
+                                },
+                                {
+                                    loader: require.resolve('postcss-loader'),
+                                    options: {
+                                        sourceMap: true,
+                                        ident: 'postcss',
+                                        plugins: () => [
+                                            postcssNormalize(/* pluginOptions */)
+                                        ]
                                     }
                                 },
                                 {
