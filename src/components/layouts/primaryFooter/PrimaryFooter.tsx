@@ -1,9 +1,7 @@
 import * as React from 'react';
 import styles from './PrimaryFooter.scss';
 
-type Props = {};
-
-const PrimaryFooter : React.FC<Props> = props => {
+const PrimaryFooter : React.FC = () => {
     return (
         <footer className={styles.block}>
             &copy; 2019 ShopRunner.

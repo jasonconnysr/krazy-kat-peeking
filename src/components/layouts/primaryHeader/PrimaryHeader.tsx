@@ -2,9 +2,7 @@ import * as React from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 import styles from './PrimaryHeader.scss';
 
-type Props = {};
-
-const PrimaryHeader : React.FC<Props> = props => {
+const PrimaryHeader : React.FC = () => {
     return (
         <UserContext.Consumer>
             {user => (
