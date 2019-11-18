@@ -1,4 +1,4 @@
 /* tslint:disable:file-name-casing */
-import HomeView from './HomeView';
-export default HomeView;
+import PrimaryFooter from './PrimaryFooter';
+export default PrimaryFooter;
 /* tslint:enable:file-name-casing */
