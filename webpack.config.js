@@ -169,7 +169,7 @@ module.exports = async (env = {}) => {
                                         sourceMap: true,
                                         ident: 'postcss',
                                         plugins: () => [
-                                            postcssNormalize(/* pluginOptions */)
+                                            postcssNormalize()
                                         ]
                                     }
                                 },
@@ -209,7 +209,7 @@ module.exports = async (env = {}) => {
                                         sourceMap: true,
                                         ident: 'postcss',
                                         plugins: () => [
-                                            postcssNormalize(/* pluginOptions */)
+                                            postcssNormalize()
                                         ]
                                     }
                                 },

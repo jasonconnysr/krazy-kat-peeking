@@ -1,3 +1,3 @@
 # Krazy Kat Peeking
 
-Bootstrapping a React project from scratch.
+Lightweight boilerplate for React with TypeScript.
