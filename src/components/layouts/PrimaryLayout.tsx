@@ -2,6 +2,7 @@ import * as React from 'react';
 import ErrorBoundary from '../ErrorBoundary';
 import PrimaryFooter from './primaryFooter';
 import PrimaryHeader from './primaryHeader';
+import PrimaryNavigation from './primaryNavigation';
 import styles from './PrimaryLayout.scss'
 import classnames from 'classnames';
 
@@ -13,7 +14,9 @@ const PrimaryLayout : React.FC<Props> = props => {
     const { children, classname } = props;
     return (
         <ErrorBoundary>
-            <PrimaryHeader/>
+            <PrimaryHeader>
+                <PrimaryNavigation/>
+            </PrimaryHeader>
 
             <main className={classnames(
                     styles.block,

@@ -1,16 +1,21 @@
 import * as React from 'react';
-import UserContext from '../../../contexts/UserContext';
+import MemberContext from '../../../contexts/MemberContext';
 import styles from './PrimaryHeader.scss';
 
-const PrimaryHeader : React.FC = () => {
+const PrimaryHeader : React.FC = props => {
+    const { children } = props;
     return (
-        <UserContext.Consumer>
-            {user => (
-                <header className={styles.block}>
-                    <h1>Welcome to ShopRunner {user.firstName} {user.lastName}!</h1>
-                </header>
+        <MemberContext.Consumer>
+            {member => (
+                <>
+                    <header className={styles.block}>
+                        <h1>Welcome to ShopRunner {member.firstName} {member.lastName}!</h1>
+                    </header>
+
+                    {children}
+                </>
             )}
-        </UserContext.Consumer>
+        </MemberContext.Consumer>
     );
 };
 

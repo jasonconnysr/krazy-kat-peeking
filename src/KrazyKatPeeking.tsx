@@ -3,28 +3,28 @@ import * as ReactDOM from 'react-dom';
 import {Route, Router} from 'react-router';
 import Routes from './routing/Routes';
 import CustomHistory from './routing/CustomHistory';
-import User from './types/User';
-import * as UserController from './controllers/UserController';
-import UserContext, { defaultUser } from './contexts/UserContext';
+import Member from './types/Member';
+import * as UserController from './controllers/MemberController';
+import MemberContext, { defaultMember } from './contexts/MemberContext';
 import './styles/styles.scss';
 
 const rootElement = document.getElementById('krazy-kat-peeking');
 
 type State = {
-    user: User
+    user: Member
 }
 
 class KrazyKatPeeking extends React.Component<{}, State> {
     constructor(props: Object) {
         super(props);
         this.state = {
-            user: defaultUser
+            user: defaultMember
         }
     };
 
     componentDidMount(): void {
-        UserController.getUser()
-            .then((response: User) => {
+        UserController.getMemberDetails()
+            .then((response: Member) => {
                 this.setState({
                     user: response
                 });
@@ -33,11 +33,11 @@ class KrazyKatPeeking extends React.Component<{}, State> {
 
     render() {
         return (
-            <UserContext.Provider value={this.state.user}>
+            <MemberContext.Provider value={this.state.user}>
                 <Router history={CustomHistory}>
                     <Route path={'/'} component={Routes}/>
                 </Router>
-            </UserContext.Provider>
+            </MemberContext.Provider>
         );
     }
 }
