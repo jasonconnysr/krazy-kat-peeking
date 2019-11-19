@@ -4,7 +4,8 @@ import {Route, Router} from 'react-router';
 import Routes from './routing/Routes';
 import CustomHistory from './routing/CustomHistory';
 import User from './types/User';
-import { UserContext } from './contexts/UserContext';
+import * as UserController from './controllers/UserController';
+import UserContext, { defaultUser } from './contexts/UserContext';
 import './styles/styles.scss';
 
 const rootElement = document.getElementById('krazy-kat-peeking');
@@ -13,24 +14,21 @@ type State = {
     user: User
 }
 
-class KrazyKatPeeking extends React.Component<Object, State> {
+class KrazyKatPeeking extends React.Component<{}, State> {
     constructor(props: Object) {
         super(props);
         this.state = {
-            user: {
-                firstName: '',
-                lastName: ''
-            }
+            user: defaultUser
         }
     };
 
     componentDidMount(): void {
-        this.setState({
-            user: {
-                firstName: 'Cheese',
-                lastName: 'Wagstaff'
-            }
-        })
+        UserController.getUser()
+            .then((response: User) => {
+                this.setState({
+                    user: response
+                });
+            });
     }
 
     render() {

@@ -1,9 +1,11 @@
 import * as React from 'react';
 import User from '../types/User';
 
-const defaultUser: User = {
+export const defaultUser: User = {
     firstName: '',
     lastName: ''
 };
 
-export const UserContext = React.createContext(defaultUser);
+const UserContext = React.createContext(defaultUser);
+
+export default UserContext;
