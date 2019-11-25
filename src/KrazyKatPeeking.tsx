@@ -1,49 +1,55 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {Route, Router} from 'react-router';
+import { Route, Router } from 'react-router';
 import Routes from './routing/Routes';
 import CustomHistory from './routing/CustomHistory';
-import * as MemberController from './controllers/MemberController';
-import MemberContext, { defaultMember, Member } from './contexts/MemberContext';
+import { fetch } from './fetch';
+import MemberContext, { defaultMember } from './contexts/MemberContext';
 import './styles/styles.scss';
 
-const rootElement = document.getElementById('krazy-kat-peeking');
+const KrazyKatPeeking : React.FC = () => {
+    const [data, setData] = React.useState({
+        loaded: false,
+        member: defaultMember
+    });
 
-type State = {
-    member: Member
-}
+    React.useEffect(() => {
+        const getMembership = async () => {
+            try {
+                setData({
+                    loaded: false,
+                    member: data.member
+                });
 
-class KrazyKatPeeking extends React.Component<{}, State> {
-    constructor(props: Object) {
-        super(props);
-        this.state = {
-            member: defaultMember
-        }
-    };
+                const response = await fetch('/json/mockMember.json');
 
-    /* componentDidMount() seems weird here */
-    componentDidMount(): void {
-        MemberController.getMemberDetails()
-            .then((response: Member) => {
-                this.setState({
+                setData({
+                    loaded: true,
                     member: response
                 });
-            });
-    }
+            }
+            catch (error) {
+                console.log('handle error',error);
+                setData({
+                    loaded: true,
+                    member: data.member
+                });
+            }
+        };
 
-    render(): React.ReactNode {
-        const { member } = this.state;
+        getMembership();
+    }, []);
 
-        return (
-            <MemberContext.Provider value={member}>
-                <Router history={CustomHistory}>
-                    <Route path={'/'} component={Routes}/>
-                </Router>
-            </MemberContext.Provider>
-        );
-    }
-}
+    return (
+        <MemberContext.Provider value={data.member}>
+            <Router history={CustomHistory}>
+                <Route path={'/'} component={Routes}/>
+            </Router>
+        </MemberContext.Provider>
+    );
+};
 
+const rootElement = document.getElementById('krazy-kat-peeking');
 ReactDOM.render(<KrazyKatPeeking/>, rootElement);
 
 export default KrazyKatPeeking;
