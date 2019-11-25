@@ -1,5 +1,5 @@
 import { fetch } from '../fetch';
-import Member from '../types/Member';
+import { Member } from '../contexts/MemberContext';
 import * as log from 'loglevel';
 
 const getMemberDetails = async (): Promise<Member | null> => {

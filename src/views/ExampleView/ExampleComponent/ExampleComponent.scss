@@ -1,0 +1,29 @@
+.block {
+  border-bottom: 1px solid #000;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+}
+
+.heading {
+  color: #666;
+  font-style: italic;
+}
+
+.list {
+  display: flex;
+}
+
+.list-item {
+  dt {
+    color: #999;
+    margin-bottom: .5rem;
+  }
+
+  dd {
+    margin-left: 0;
+  }
+
+  + .list-item {
+    margin-left: 2em;
+  }
+}

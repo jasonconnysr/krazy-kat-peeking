@@ -1,7 +1,10 @@
 .block {
+  margin: 0 auto;
+  max-width: 75rem;
   min-height: 50vh;
 }
 
 .heading {
-  font-size: 3em;
+  border-bottom: 1px solid black;
+  padding: 0 2rem .5rem;
 }

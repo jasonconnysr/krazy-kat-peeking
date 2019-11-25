@@ -1,6 +1,6 @@
 export interface IExampleViewScss {
-  block: string;
-  heading: string;
+    block: string;
+    heading: string;
 }
 
 export const locals: IExampleViewScss;

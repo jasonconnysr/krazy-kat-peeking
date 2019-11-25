@@ -1,0 +1,234 @@
+@import "../variables/colors";
+@import "misc-modifiers";
+
+@mixin icon ($name, $modifier: none) {
+  @include default-transition(color);
+  position: relative;
+
+  &::before,
+  &::after {
+    // sass-lint:disable no-vendor-prefixes
+    -moz-osx-font-smoothing: grayscale; // Support for Firefox.
+    -webkit-font-smoothing: antialiased; // Support for all WebKit browsers.
+    // sass-lint:enable no-vendor-prefixes
+    content: '#{$name}';
+    direction: ltr;
+    display: inline-block;
+    // sass-lint:disable no-important
+    font-family: 'srx-icons' !important; // use !important to prevent issues with browser extensions that change fonts
+    // scss-lint:enable no-important
+    font-feature-settings: 'liga'; // Support for IE.
+    font-size: inherit;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: inherit;
+    text-indent: 0;
+    text-rendering: optimizeLegibility; // Support for Safari and Chrome.
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+
+  @if $name == account {
+    &::before,
+    &::after {
+      content: '\e99f';
+    }
+  }
+
+  @if $name == bag {
+    &::before,
+    &::after {
+      content: '\e999d';
+    }
+  }
+
+  @if $name == chevron-right {
+    &::before,
+    &::after {
+      content: '\e99b';
+    }
+  }
+
+  @if $name == close-button {
+    &::before,
+    &::after {
+      content: '\e992';
+    }
+  }
+
+  @if $name == expand {
+    &::before,
+    &::after {
+      content: '\ea00';
+    }
+  }
+
+  @if $name == favorite-border {
+    &::before,
+    &::after {
+      content: '\e999';
+    }
+  }
+
+  @if $name == favorite {
+    &::before,
+    &::after {
+      content: '\e99a';
+    }
+  }
+
+  @if $name == home {
+    &::before,
+    &::after {
+      content: '\e99d';
+    }
+  }
+
+  @if $name == more {
+    &::before,
+    &::after {
+      content: '\e998';
+    }
+  }
+
+  @if $name == offers {
+    &::before,
+    &::after {
+      content: '\e990';
+    }
+  }
+
+  @if $name == returns {
+    &::before,
+    &::after {
+      content: '\e995';
+    }
+  }
+
+  @if $name == shipping {
+    &::before,
+    &::after {
+      content: '\e996';
+    }
+  }
+
+  @if $name == shoprunner {
+    &::before,
+    &::after {
+      content: '\e993';
+    }
+  }
+
+  @if $name == signIn {
+    &::before,
+    &::after {
+      content: '\e999f';
+    }
+  }
+
+  @if $name == similar-matches {
+    &::before,
+    &::after {
+      content: '\e997';
+    }
+  }
+
+  @if $name == sr-logo {
+    &::before,
+    &::after {
+      content: '\e994';
+    }
+  }
+
+  @if $name == stores {
+    &::before,
+    &::after {
+      content: '\e991';
+    }
+  }
+
+  @if $name == tag {
+    &::before,
+    &::after {
+      content: '\e999c';
+    }
+  }
+
+  @if $name == time {
+    &::before,
+    &::after {
+      content: '\e99c';
+    }
+  }
+
+  @if $modifier == before {
+    &::before {
+      margin-right: .25em;
+    }
+
+    &::after {
+      content: '';
+    }
+  }
+
+  @if $modifier == after {
+    &::before {
+      content: '';
+    }
+
+    &::after {
+      margin-left: .25em;
+    }
+  }
+
+  @if $modifier == circle {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+
+    &:before {
+      color: inherit;
+    }
+
+    &::after {
+      content: '';
+    }
+  }
+
+  @if $modifier == only {
+    @include hide-text;
+    display: inline-block;
+    height: 1em;
+    line-height: 1;
+    width: 1em;
+
+    &::before {
+      position: absolute;
+      right: 0;
+      text-indent: 0;
+    }
+
+    &::after {
+      content: '';
+    }
+  }
+
+  @if $modifier == top {
+    &::before {
+      display: block;
+      font-size: 2em;
+      line-height: 1;
+      padding: 0 0 2px;
+      text-align: center;
+      width: 100%
+    }
+
+    &::after {
+      content: '';
+    }
+  }
+}

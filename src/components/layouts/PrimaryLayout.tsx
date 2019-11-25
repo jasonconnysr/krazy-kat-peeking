@@ -1,17 +1,19 @@
 import * as React from 'react';
 import ErrorBoundary from '../ErrorBoundary';
+import Loading from './loading';
 import PrimaryFooter from './primaryFooter';
 import PrimaryHeader from './primaryHeader';
 import PrimaryNavigation from './primaryNavigation';
 import styles from './PrimaryLayout.scss'
 import classnames from 'classnames';
 
-type Props = {
+interface Props {
     classname?: string;
-};
+    loaded: boolean;
+}
 
 const PrimaryLayout : React.FC<Props> = props => {
-    const { children, classname } = props;
+    const { children, classname, loaded } = props;
     return (
         <ErrorBoundary>
             <PrimaryHeader>
@@ -23,7 +25,9 @@ const PrimaryLayout : React.FC<Props> = props => {
                     {[`${classname}`]: classname}
                 )}
             >
-                {children}
+                <Loading loaded={loaded}>
+                    {children}
+                </Loading>
             </main>
 
             <PrimaryFooter/>

@@ -2,8 +2,13 @@ import * as React from 'react';
 import MemberContext from '../../../contexts/MemberContext';
 import styles from './PrimaryHeader.scss';
 
-const PrimaryHeader : React.FC = props => {
+interface Props {
+    children?: React.ReactNode;
+}
+
+const PrimaryHeader : React.FC<Props> = props => {
     const { children } = props;
+
     return (
         <MemberContext.Consumer>
             {member => (

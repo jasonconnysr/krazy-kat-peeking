@@ -1,7 +1,14 @@
 import * as React from 'react';
-import Member from '../types/Member';
+
+export type Member = {
+    email: string,
+    firstName: string,
+    lastName: string,
+    memberId: string
+};
 
 export const defaultMember: Member = {
+    email: '',
     firstName: '',
     lastName: '',
     memberId: ''

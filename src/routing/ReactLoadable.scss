@@ -1,0 +1,13 @@
+@import "../styles/variables/colors";
+
+.block {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vw;
+  width: 100vw;
+}
+
+.error-message {
+  color: $rebrand-color-3;
+}

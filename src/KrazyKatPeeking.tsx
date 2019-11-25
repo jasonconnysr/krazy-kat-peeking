@@ -3,37 +3,39 @@ import * as ReactDOM from 'react-dom';
 import {Route, Router} from 'react-router';
 import Routes from './routing/Routes';
 import CustomHistory from './routing/CustomHistory';
-import Member from './types/Member';
-import * as UserController from './controllers/MemberController';
-import MemberContext, { defaultMember } from './contexts/MemberContext';
+import * as MemberController from './controllers/MemberController';
+import MemberContext, { defaultMember, Member } from './contexts/MemberContext';
 import './styles/styles.scss';
 
 const rootElement = document.getElementById('krazy-kat-peeking');
 
 type State = {
-    user: Member
+    member: Member
 }
 
 class KrazyKatPeeking extends React.Component<{}, State> {
     constructor(props: Object) {
         super(props);
         this.state = {
-            user: defaultMember
+            member: defaultMember
         }
     };
 
+    /* componentDidMount() seems weird here */
     componentDidMount(): void {
-        UserController.getMemberDetails()
+        MemberController.getMemberDetails()
             .then((response: Member) => {
                 this.setState({
-                    user: response
+                    member: response
                 });
             });
     }
 
-    render() {
+    render(): React.ReactNode {
+        const { member } = this.state;
+
         return (
-            <MemberContext.Provider value={this.state.user}>
+            <MemberContext.Provider value={member}>
                 <Router history={CustomHistory}>
                     <Route path={'/'} component={Routes}/>
                 </Router>

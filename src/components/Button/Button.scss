@@ -1,0 +1,34 @@
+@import "../../styles/variables/colors";
+@import "../../styles/mixins/icons";
+
+.block {
+  background-color: $rebrand-color-3;
+  border-radius: 2rem;
+  box-shadow: none;
+  color: $brand-color-neutral-70;
+  font-weight: 600;
+  font-size: .875em;
+  font-style: italic;
+  line-height: 1;
+  margin: 0 auto;
+  min-width: 12.5rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &--with-logo {
+    @include icon('sr-logo', 'before');
+
+    &::before {
+      margin-right: 0.5em;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: rgba(38, 2, 0, 0.4) 0 2px 4px 0;
+    text-decoration: none;
+  }
+}
