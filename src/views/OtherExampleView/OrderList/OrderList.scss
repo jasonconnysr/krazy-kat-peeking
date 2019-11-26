@@ -1,7 +1,6 @@
 @import "../../../styles/variables/colors";
 
 .block {
-  border-bottom: 1px solid $brand-color-4;
   margin-bottom: 1rem;
   padding: 0 2rem;
 }
@@ -9,4 +8,11 @@
 .heading {
   color: $brand-color-5;
   font-style: italic;
+}
+
+.list {
+  border: 1px solid $brand-color-1;
+  list-style: none;
+  margin: 0;
+  padding: .25rem;
 }

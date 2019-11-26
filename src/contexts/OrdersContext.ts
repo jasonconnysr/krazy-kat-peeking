@@ -1,22 +1,24 @@
 import * as React from 'react';
+import { Retailer } from './RetailersContext';
 
 export type Order = {
     createdDate: string,
     expressCheckout: boolean
     lastModifiedDate: string,
     memberId: string,
-    membershipTermId: string,
     merchantOrderId: string,
     orderDate: string,
     orderEmail: string,
     orderId: string,
-    orderOrigin: "SHOPRUNNER" | "DISTRICT" | null,
+    orderOrigin: "PIK" | "DISTRICT" | null,
     orderStatus: "Delivered" | "Ordered" | "Partially Delivered" | "Processing" | null,
-    orderStatusId: number,
-    orderSubtotal: string,
-    orderTotal: string
+    orderSubtotal: string | null,
+    orderTotal: string,
+    retailer: Retailer
 };
 
-const OrdersContext = React.createContext([]);
+export const defaultOrders: Array<Order> = [];
+
+const OrdersContext = React.createContext(defaultOrders);
 
 export default OrdersContext;

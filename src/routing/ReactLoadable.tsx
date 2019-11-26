@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Loadable from 'react-loadable';
 import * as log from 'loglevel';
+import ErrorMessage from '../components/ErrorMessage';
 import Spinner from '../components/Spinner';
 import styles from './ReactLoadable.scss';
 
@@ -13,21 +14,18 @@ import styles from './ReactLoadable.scss';
 // error is displayed.
 const GlobalLoading = (error: boolean, pastDelay: boolean, timedOut: boolean) => {
     if (error) {
+        // TODO: Why does this immediately throw this error??
         log.info('ReactLoadable has brief error state');
         return null;
     } else if (pastDelay) {
         return (
-            <div className={styles.block}>
+            <section className={styles.block}>
                 <Spinner/>
-            </div>
+            </section>
         );
     } else if (timedOut) {
         return (
-            <div className={styles.block}>
-                <p className={styles.errorMessage}>
-                    Page timed out.
-                </p>
-            </div>
+            <ErrorMessage errorMessageText={'Your request timed out.'} />
         );
     }
 

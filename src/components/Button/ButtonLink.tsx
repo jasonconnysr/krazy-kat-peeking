@@ -4,7 +4,7 @@ import styles from './Button.scss';
 
 interface Props {
     classname?: string,
-    handleClick: (event: React.MouseEvent<HTMLAnchorElement>) => void,
+    handleClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void,
     href: string,
     showLogo?: boolean,
     targetBlank?: boolean,

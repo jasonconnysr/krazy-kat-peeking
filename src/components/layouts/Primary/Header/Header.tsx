@@ -1,12 +1,12 @@
 import * as React from 'react';
-import MemberContext from '../../../contexts/MemberContext';
-import styles from './PrimaryHeader.scss';
+import MemberContext from '../../../../contexts/MemberContext';
+import styles from './Header.scss';
 
 interface Props {
     children?: React.ReactNode;
 }
 
-const PrimaryHeader : React.FC<Props> = props => {
+const Header : React.FC<Props> = props => {
     const { children } = props;
 
     return (
@@ -24,4 +24,4 @@ const PrimaryHeader : React.FC<Props> = props => {
     );
 };
 
-export default PrimaryHeader;
+export default Header;

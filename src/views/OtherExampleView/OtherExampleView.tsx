@@ -1,19 +1,20 @@
 import * as React from 'react';
 import { fetch } from '../../fetch';
-import OrdersContext from '../../contexts/OrdersContext';
+import OrdersContext, { defaultOrders } from '../../contexts/OrdersContext';
 import { PrimaryLayout } from '../../components/layouts';
-// import styles from './OtherExampleView.scss';
+import OrderList from './OrderList';
+import styles from './OtherExampleView.scss';
 
 const OtherExampleView : React.FC = () => {
     const [exampleOrders, setExampleOrders] = React.useState({
         error: false,
         errorMessage: null,
         loaded: false,
-        orders: []
+        orders: defaultOrders
     });
 
     React.useEffect(() => {
-        const getMembership = async () => {
+        const getOrders = async () => {
             try {
                 setExampleOrders({
                     error: false,
@@ -42,17 +43,22 @@ const OtherExampleView : React.FC = () => {
             }
         };
 
-        getMembership();
+        getOrders();
     }, []);
 
     return (
         <OrdersContext.Provider value={exampleOrders.orders}>
             <PrimaryLayout
+                classname={styles.block}
                 error={exampleOrders.error}
                 errorMessage={exampleOrders.errorMessage}
                 loaded={exampleOrders.loaded}
             >
-                <h1>Other Example View</h1>
+                <h1 className={styles.heading}>Other Example View</h1>
+
+                <p>This view displays a list of orders from the Order context.</p>
+
+                <OrderList/>
             </PrimaryLayout>
         </OrdersContext.Provider>
     );

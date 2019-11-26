@@ -1,0 +1,55 @@
+@import "../../../styles/variables/colors";
+
+.block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: .75rem 1rem;
+
+  + .block {
+    border-top: 1px solid $brand-color-6;
+  }
+}
+
+.retailer-name {
+  color: $brand-color-4;
+  font-size: .75em;
+  font-weight: 900;
+  margin: 0 0 .75em;
+  width: 100%;
+}
+
+.order-info {
+  margin: 0;
+  width: 25%;
+
+  dt {
+    color: $brand-color-2;
+    font-size: .75em;
+    font-weight: bold;
+    margin-bottom: .5em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0;
+
+    + dt {
+      margin-top: .5rem;
+    }
+  }
+}
+
+.order-status {
+  width: calc(50% - 3rem);
+}
+
+.order-actions {
+  width: 25%;
+}
+
+.order-total {
+  font-size: 1.2em;
+  font-weight: lighter;
+  margin: 0 0 .25em;
+}

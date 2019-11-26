@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './PrimaryNavigation.scss';
+import styles from './Navigation.scss';
 
-const PrimaryNavigation : React.FC = () => {
+const Navigation : React.FC = () => {
     return (
         <nav className={styles.block}>
             <ul className={styles.list}>
@@ -30,4 +30,4 @@ const PrimaryNavigation : React.FC = () => {
     )
 };
 
-export default PrimaryNavigation;
+export default Navigation;

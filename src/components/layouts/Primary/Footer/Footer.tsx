@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styles from './PrimaryFooter.scss';
+import styles from './Footer.scss';
 
-const PrimaryFooter : React.FC = () => {
+const Footer : React.FC = () => {
     return (
         <footer className={styles.block}>
             &copy; 2019 ShopRunner.
@@ -9,4 +9,4 @@ const PrimaryFooter : React.FC = () => {
     )
 };
 
-export default PrimaryFooter;
+export default Footer;

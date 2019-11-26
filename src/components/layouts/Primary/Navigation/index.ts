@@ -1,4 +1,4 @@
 /* tslint:disable:file-name-casing */
-import PrimaryHeader from './PrimaryHeader';
-export default PrimaryHeader;
+import Navigation from './Navigation';
+export default Navigation;
 /* tslint:enable:file-name-casing */

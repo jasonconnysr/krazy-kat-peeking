@@ -7,7 +7,7 @@
 }
 
 .heading {
-  color: #666;
+  color: $brand-color-5;
   font-style: italic;
 }
 
@@ -17,7 +17,7 @@
 
 .list-item {
   dt {
-    color: #999;
+    color: $brand-color-2;
     margin-bottom: .5rem;
   }
 
