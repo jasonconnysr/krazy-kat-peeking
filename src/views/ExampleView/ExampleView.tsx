@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { fetch } from '../../fetch';
-import MembershipContext, { defaultMembership } from '../../contexts/MembershipContext';
+import MembershipContext, { defaultMembership, Membership } from '../../contexts/MembershipContext';
 import { PrimaryLayout } from '../../components/layouts';
 import AnotherComponent from './AnotherComponent';
 import ExampleComponent from './ExampleComponent';
@@ -25,7 +25,7 @@ const ExampleView : React.FC = () => {
                     membership: exampleData.membership
                 });
 
-                const response = await fetch('/json/mockMembership.json');
+                const response: Membership = await fetch('/json/mockMembership.json');
 
                 setExampleData({
                     loaded: true,
@@ -48,9 +48,13 @@ const ExampleView : React.FC = () => {
         <MembershipContext.Provider value={exampleData.membership}>
             <PrimaryLayout
                 classname={styles.block}
+                error={false}
+                errorMessage={''}
                 loaded={exampleData.loaded}
             >
                 <h1 className={styles.heading}>Example View</h1>
+
+                <p>This view includes data from two contexts: Member and Membership</p>
 
                 <AnotherComponent/>
 

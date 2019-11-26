@@ -1,5 +1,5 @@
 /* tslint:disable:file-name-casing */
-import { PrimaryLayout } from './Primary';
+import PrimaryLayout from './PrimaryLayout';
 export {
     PrimaryLayout
 };

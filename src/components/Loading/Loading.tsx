@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Spinner from '../../Spinner';
+import Spinner from '../Spinner';
 import styles from './Loading.scss';
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
     loaded: boolean
 }
 
-const Loading : React.FC<Props> = (props) => {
+export const Loading : React.FC<Props> = props => {
     const { children, loaded } = props;
 
     if (loaded) {
@@ -18,11 +18,9 @@ const Loading : React.FC<Props> = (props) => {
         );
     } else {
         return (
-            <div className={styles.block}>
+            <section className={styles.block}>
                 <Spinner/>
-            </div>
+            </section>
         );
     }
 };
-
-export default Loading;

@@ -12,6 +12,13 @@ const ExampleView = CustomLoadable({
         )
 });
 
+const OtherExampleView = CustomLoadable({
+    loader: () => import(
+        '../views/OtherExampleView'
+        /* webpackChunkName: "OtherExampleView" */
+        )
+});
+
 const Routes = () => {
     return (
         <Switch>
@@ -19,6 +26,12 @@ const Routes = () => {
                 exact={true}
                 path={'/example'}
                 component={ExampleView}
+            />
+
+            <Route
+                exact={true}
+                path={'/other-example'}
+                component={OtherExampleView}
             />
 
             <Redirect path="/" to="/example"/>

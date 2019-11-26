@@ -5,6 +5,7 @@ type State = {
     hasError: boolean
 }
 
+// TODO: refactor to FC
 class ErrorBoundary extends React.Component<{}, State> {
     constructor(props: Readonly<{}>) {
         super(props);

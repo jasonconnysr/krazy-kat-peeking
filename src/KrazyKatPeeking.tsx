@@ -4,7 +4,7 @@ import { Route, Router } from 'react-router';
 import Routes from './routing/Routes';
 import CustomHistory from './routing/CustomHistory';
 import { fetch } from './fetch';
-import MemberContext, { defaultMember } from './contexts/MemberContext';
+import MemberContext, { defaultMember, Member } from './contexts/MemberContext';
 import './styles/styles.scss';
 
 const KrazyKatPeeking : React.FC = () => {
@@ -21,7 +21,7 @@ const KrazyKatPeeking : React.FC = () => {
                     member: data.member
                 });
 
-                const response = await fetch('/json/mockMember.json');
+                const response: Member = await fetch('/json/mockMember.json');
 
                 setData({
                     loaded: true,
