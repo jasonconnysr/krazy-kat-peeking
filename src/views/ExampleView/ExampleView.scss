@@ -1,3 +1,5 @@
+@import "../../styles/variables/colors";
+
 .block {
   margin: 0 auto;
   max-width: 75rem;
@@ -5,6 +7,6 @@
 }
 
 .heading {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $brand-color-4;
   padding: 0 2rem .5rem;
 }

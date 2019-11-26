@@ -21,7 +21,7 @@ const PrimaryLayout : React.FC<Props> = props => {
             </PrimaryHeader>
 
             <main className={classnames(
-                    styles.block,
+                    styles.main,
                     {[`${classname}`]: classname}
                 )}
             >

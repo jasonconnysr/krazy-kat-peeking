@@ -1,4 +1,7 @@
+@import "../../../styles/variables/colors";
+
 .block {
+  border-top: 1px solid $brand-color-2;
   padding: .5rem;
   text-align: center;
 }

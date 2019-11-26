@@ -2,6 +2,7 @@ import * as React from 'react';
 import { fetch } from '../../fetch';
 import MembershipContext, { defaultMembership } from '../../contexts/MembershipContext';
 import { PrimaryLayout } from '../../components/layouts';
+import AnotherComponent from './AnotherComponent';
 import ExampleComponent from './ExampleComponent';
 import { Button } from '../../components/Button';
 import styles from './ExampleView.scss';
@@ -50,6 +51,8 @@ const ExampleView : React.FC = () => {
                 loaded={exampleData.loaded}
             >
                 <h1 className={styles.heading}>Example View</h1>
+
+                <AnotherComponent/>
 
                 <ExampleComponent/>
 

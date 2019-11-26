@@ -1,11 +1,11 @@
 import * as React from 'react';
-import MembershipContext from '../../../contexts/MembershipContext';
+import MembershipContext, { Membership } from '../../../contexts/MembershipContext';
 import styles from './ExampleComponent.scss';
 
 const ExampleComponent : React.FC = () => {
     return (
         <MembershipContext.Consumer>
-            {membership => (
+            {(membership: Membership) => (
                 <section className={styles.block}>
                     <h2 className={styles.heading}>Account Overview</h2>
 

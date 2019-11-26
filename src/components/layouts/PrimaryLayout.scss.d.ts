@@ -1,5 +1,5 @@
 export interface IPrimaryLayoutScss {
-  block: string;
+  main: string;
 }
 
 export const locals: IPrimaryLayoutScss;

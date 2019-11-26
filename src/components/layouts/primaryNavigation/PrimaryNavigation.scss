@@ -1,5 +1,8 @@
+@import "../../../styles/variables/colors";
+
 .block {
-  background-color: rgba(cornflowerblue, .5);
+  border-bottom: 1px solid $brand-color-5;
+  border-top: 1px solid $brand-color-5;
   padding: 0 2rem;
 }
 
@@ -19,11 +22,9 @@
 
 .link {
   display: block;
-  padding: .25rem .5rem;
+  padding: .5rem 1rem;
 
   &--active {
-    background-color: cornflowerblue;
-    display: block;
-    padding: .25rem .5rem;
+    background-color: $brand-color-1;
   }
 }
