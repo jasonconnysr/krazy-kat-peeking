@@ -2,6 +2,9 @@
 /build
 !/build/.gitkeep
 /node_modules
+/api/build
+!/api/build/.gitkeep
+/api/node_modules
 
 .DS_Store
 *.log

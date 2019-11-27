@@ -29,6 +29,7 @@
         "./src"
     ],
     "exclude": [
+        "./api",
         "./build",
         "./node_modules"
     ]
