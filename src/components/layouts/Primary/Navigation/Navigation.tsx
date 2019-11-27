@@ -25,6 +25,26 @@ const Navigation : React.FC = () => {
                         Other Example
                     </NavLink>
                 </li>
+
+                <li className={styles.listItem}>
+                    <NavLink
+                        to={'/error'}
+                        className={styles.link}
+                        activeClassName={styles.linkActive}
+                    >
+                        Error
+                    </NavLink>
+                </li>
+
+                <li className={styles.listItem}>
+                    <NavLink
+                        to={'/loading'}
+                        className={styles.link}
+                        activeClassName={styles.linkActive}
+                    >
+                        Loading
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     )

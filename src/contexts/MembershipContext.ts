@@ -6,25 +6,25 @@ import * as React from 'react';
 export type Membership = {
     active: boolean,
     amex?: boolean,
-    createFmtDt: string,
+    createdDate: string,
     displayName: string,
-    expirationFmtDt: string
+    expirationDate: string
     isAmex: boolean,
     isPaid: boolean,
-    memberSinceFmtDt: string,
-    nextRenewalFmtDt: string
+    memberSinceDate: string,
+    nextRenewalDate: string
     paid?: boolean
 }
 
 export const defaultMembership: Membership = {
     active: false,
-    createFmtDt: '',
+    createdDate: '',
     displayName: '',
-    expirationFmtDt: '',
+    expirationDate: '',
     isAmex: false,
     isPaid: false,
-    memberSinceFmtDt: '',
-    nextRenewalFmtDt: ''
+    memberSinceDate: '',
+    nextRenewalDate: ''
 
 };
 

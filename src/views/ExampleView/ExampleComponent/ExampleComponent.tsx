@@ -1,5 +1,6 @@
 import * as React from 'react';
 import MembershipContext, { Membership } from '../../../contexts/MembershipContext';
+import Date from '../../../components/Date';
 import styles from './ExampleComponent.scss';
 
 const ExampleComponent : React.FC = () => {
@@ -22,12 +23,16 @@ const ExampleComponent : React.FC = () => {
 
                         <div className={styles.listItem}>
                             <dt>Member since</dt>
-                            <dd>{membership.memberSinceFmtDt}</dd>
+                            <dd>
+                                <Date date={membership.memberSinceDate}/>
+                            </dd>
                         </div>
 
                         <div className={styles.listItem}>
                             <dt>Membership expiration</dt>
-                            <dd>{membership.expirationFmtDt}</dd>
+                            <dd>
+                                <Date date={membership.expirationDate}/>
+                            </dd>
                         </div>
                     </dl>
                 </section>

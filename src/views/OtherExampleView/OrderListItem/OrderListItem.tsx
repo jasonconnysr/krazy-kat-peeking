@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Order } from '../../../contexts/OrdersContext';
 import { ButtonLink } from '../../../components/Button';
+import Date from '../../../components/Date';
 import styles from './OrderListItem.scss';
 
 interface Props {
@@ -22,7 +23,9 @@ export const OrderListItem : React.FC<Props> = props => {
 
             <dl className={styles.orderInfo}>
                 <dt>Ordered on:</dt>
-                <dd>{order.orderDate}</dd>
+                <dd>
+                    <Date date={order.orderDate}/>
+                </dd>
 
                 <dt>Order number:</dt>
                 <dd>{order.orderId}</dd>

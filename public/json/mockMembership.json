@@ -1,12 +1,12 @@
 {
     "active": true,
     "amex": false,
-    "createdFmtDt": "2018-08-13T02:40:00",
+    "createdDate": "2018-08-13T02:40:00",
     "displayName": "ShopRunner Member",
-    "expirationFmtDt": "12/31/2019",
+    "expirationDate": "2019-12-31T00:00:00",
     "isAmex": false,
     "isPaid": false,
-    "memberSinceFmtDt": "02/13/2018",
-    "nextRenewalFmtDt": "12/31/2019",
+    "memberSinceDate": "2018-08-13T02:40:00",
+    "nextRenewalDate": "2019-12-31T00:00:00",
     "paid": false
 }

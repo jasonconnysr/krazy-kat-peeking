@@ -280,6 +280,7 @@ module.exports = async (env = {}) => {
                 filename: 'static/css/[name].[contenthash:8].css',
                 chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
             }),
+            new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
             new ForkTsCheckerWebpackPlugin({
                 typescript: resolve.sync('typescript', {
                     basedir: path.resolve(__dirname, 'node_modules')
@@ -290,7 +291,10 @@ module.exports = async (env = {}) => {
                 formatter: typescriptFormatter,
                 watch: path.resolve(__dirname, 'src'),
                 silent: isProd
-            })
+            }),
+            new webpack.WatchIgnorePlugin([
+                /scss\.d\.ts$/
+            ])
         ].filter(Boolean),
         resolve: {
             extensions: [

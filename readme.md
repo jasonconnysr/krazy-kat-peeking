@@ -11,13 +11,11 @@ Lightweight boilerplate for React with TypeScript.
 
 ## TODO
 
-- Error page
-- Loading page
 - Secondary layout
 - Mobile/responsive styles
 - A11y
 - Forms
-- Date handling
+- Better style re-use
 
 ## Potentially Useful
 
