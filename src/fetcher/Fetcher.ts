@@ -7,7 +7,7 @@ export const defaultOptions = Object.freeze({
         Accept: 'application/json',
         'Content-Type': 'application/json',
     }),
-    credentials: 'include',
+    // credentials: 'include',
 });
 
 /**
@@ -25,6 +25,7 @@ export const Fetcher = async (url: string, options: any = {}): Promise<any> => {
         const res = await window.fetch(url, Object.assign({}, defaultOptions, options));
         try {
             if (res.status === 204) {
+                console.log(res);
                 return null;
             }
             if (res.status === 403) {
@@ -33,19 +34,11 @@ export const Fetcher = async (url: string, options: any = {}): Promise<any> => {
                 event.initEvent('lowSecLogin', true, true);
                 document.dispatchEvent(event);
             }
-            let data = null;
-            if (url.match(/imageresize/g)) {
-                return res.ok;
-            }
-            if (url.match(/JsTokenV2/g)) {
-                data = await res.text();
+            const json = await res.json();
+            if (res.ok && json !== null) {
+                return json;
             } else {
-                data = await res.json();
-            }
-            if (res.ok && data !== null) {
-                return data;
-            } else {
-                throw new ApiError({...res, ...data});
+                throw new ApiError({...res, ...json});
             }
         } catch (error) {
             if (error.type === API_ERROR) {

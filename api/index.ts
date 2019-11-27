@@ -7,9 +7,9 @@ const port = 8080;
 const mockAPI: express.Application = express();
 const corsOptions = {
     origin: true,
-    exposedHeaders: ['Access-Control-Allow-Origin'],
-    methods: ['get', 'post',],
-    optionsSuccess: 200
+    exposedHeaders: [ 'Access-Control-Allow-Origin' ],
+    methods: [ 'get', 'post' ],
+    optionsSuccessStatus: 200
 };
 
 mockAPI.use(bodyParser.json());

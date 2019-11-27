@@ -21,7 +21,7 @@ const KrazyKatPeeking : React.FC = () => {
                     member: data.member
                 });
 
-                const response: Member = await Fetcher('/json/mockMember.json');
+                const response: Member = await Fetcher('http://localhost:8080/api/member/1234');
 
                 setData({
                     loaded: true,
