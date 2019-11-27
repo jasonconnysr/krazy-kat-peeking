@@ -17,21 +17,26 @@ mockAPI.use(bodyParser.json());
 mockAPI.options('*', cors());
 
 mockAPI.get('/api/member/:memberId', cors(corsOptions), (req, res) => {
+    console.log(`/api/member/${req.params.memberId}`, req.body, '\n');
     const responsePath = `${__dirname}/json/mockMember.json`;
     const response = fs.createReadStream(responsePath);
     response.pipe(res);
 });
 
 mockAPI.get('/api/member/:memberId/membership', cors(corsOptions), (req, res) => {
+    console.log(`/api/member/${req.params.memberId}/membership`, req.body, '\n');
     const responsePath = `${__dirname}/json/mockMembership.json`;
     const response = fs.createReadStream(responsePath);
     response.pipe(res);
 });
 
 mockAPI.get('/api/member/:memberId/orders', cors(corsOptions), (req, res) => {
+    console.log(`/api/member/${req.params.memberId}/orders`, req.body, '\n');
     const responsePath = `${__dirname}/json/mockOrders.json`;
     const response = fs.createReadStream(responsePath);
     response.pipe(res);
 });
 
-mockAPI.listen(port);
+mockAPI.listen(port, () => {
+    console.log(`Mock API server started on port: ${port}`);
+});

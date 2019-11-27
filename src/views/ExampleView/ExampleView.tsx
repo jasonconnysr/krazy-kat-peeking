@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fetch } from '../../fetch';
+import { Fetcher } from '../../fetcher';
 import MembershipContext, { defaultMembership, Membership } from '../../contexts/MembershipContext';
 import { PrimaryLayout } from '../../components/layouts';
 import AnotherComponent from './AnotherComponent';
@@ -25,7 +25,7 @@ const ExampleView : React.FC = () => {
                     membership: exampleData.membership
                 });
 
-                const response: Membership = await fetch('/json/mockMembership.json');
+                const response: Membership = await Fetcher('/json/mockMembership.json');
 
                 setExampleData({
                     loaded: true,

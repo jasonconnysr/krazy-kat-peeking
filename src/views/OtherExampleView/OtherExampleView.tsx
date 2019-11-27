@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fetch } from '../../fetch';
+import { Fetcher } from '../../fetcher';
 import OrdersContext, { defaultOrders } from '../../contexts/OrdersContext';
 import { PrimaryLayout } from '../../components/layouts';
 import OrderList from './OrderList';
@@ -23,7 +23,7 @@ const OtherExampleView : React.FC = () => {
                     orders: exampleOrders.orders
                 });
 
-                const response = await fetch('/json/mockOrders.json');
+                const response = await Fetcher('/json/mockOrders.json');
 
                 setExampleOrders({
                     error: false,

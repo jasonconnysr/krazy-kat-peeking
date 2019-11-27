@@ -20,7 +20,7 @@ export const defaultOptions = Object.freeze({
  * @param options
  * @returns {Promise<any>}
  */
-export async function fetch(url: string, options: any = {}): Promise<any> {
+export const Fetcher = async (url: string, options: any = {}): Promise<any> => {
     try {
         const res = await window.fetch(url, Object.assign({}, defaultOptions, options));
         try {
