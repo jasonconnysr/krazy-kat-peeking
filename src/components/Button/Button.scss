@@ -5,7 +5,7 @@
   background-color: $brand-color-3;
   border-radius: 2rem;
   box-shadow: none;
-  display: block;
+  display: inline-block;
   color: white;
   font-weight: 600;
   font-size: .875em;
@@ -17,6 +17,7 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
 
   &--with-logo {
     @include icon('sr-logo', 'before');

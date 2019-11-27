@@ -28,6 +28,16 @@ const Navigation : React.FC = () => {
 
                 <li className={styles.listItem}>
                     <NavLink
+                        to={'/secondary-example'}
+                        className={styles.link}
+                        activeClassName={styles.linkActive}
+                    >
+                        Secondary Example
+                    </NavLink>
+                </li>
+
+                <li className={styles.listItem}>
+                    <NavLink
                         to={'/error'}
                         className={styles.link}
                         activeClassName={styles.linkActive}

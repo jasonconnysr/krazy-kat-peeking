@@ -1,0 +1,86 @@
+[
+    {
+        "firstName": "Jimmy",
+        "lastName": "McNulty"
+    },
+    {
+        "firstName": "Lieutenant",
+        "lastName": "Daniels"
+    },
+    {
+        "firstName": "Avon",
+        "lastName": "Barksdale"
+    },
+    {
+        "firstName": "Frank",
+        "lastName": "Sobotka"
+    },
+    {
+        "firstName": "Weebay",
+        "lastName": null
+    },
+    {
+        "firstName": "Stinkum",
+        "lastName": null
+    },
+    {
+        "firstName": "Omar",
+        "lastName": "Little"
+    },
+    {
+        "firstName": "Bunk",
+        "lastName": null
+    },
+    {
+        "firstName": "Clay",
+        "lastName": "Davis"
+    },
+    {
+        "firstName": "Lester",
+        "lastName": "Freemon"
+    },
+    {
+        "firstName": "Herc",
+        "lastName": null
+    },
+    {
+        "firstName": null,
+        "lastName": "Carcetti"
+    },
+    {
+        "firstName": "Bodie",
+        "lastName": null
+    },
+    {
+        "firstName": "Snoop",
+        "lastName": null
+    },
+    {
+        "firstName": "Stringer",
+        "lastName": "Bell"
+    },
+    {
+        "firstName": "Kima",
+        "lastName": "Gregs"
+    },
+    {
+        "firstName": "Brother",
+        "lastName": "Mouzone"
+    },
+    {
+        "firstName": "Dookie",
+        "lastName": null
+    },
+    {
+        "firstName": "Slim",
+        "lastName": "Charles"
+    },
+    {
+        "firstName": "Bubbles",
+        "lastName": null
+    },
+    {
+        "firstName": "Proposition",
+        "lastName": "Joe"
+    }
+]

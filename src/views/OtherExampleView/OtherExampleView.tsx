@@ -23,7 +23,7 @@ const OtherExampleView : React.FC = () => {
                     orders: exampleOrders.orders
                 });
 
-                const response = await Fetcher('/json/mockOrders.json');
+                const response = await Fetcher('http://localhost:8080/api/member/1234/orders');
 
                 setExampleOrders({
                     error: false,

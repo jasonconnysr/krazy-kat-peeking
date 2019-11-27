@@ -37,6 +37,13 @@ mockAPI.get('/api/member/:memberId/orders', cors(corsOptions), (req, res) => {
     response.pipe(res);
 });
 
+mockAPI.get('/api/characters', cors(corsOptions), (req, res) => {
+    console.log('/api/characters');
+    const responsePath = `${__dirname}/json/wireCharacters.json`;
+    const response = fs.createReadStream(responsePath);
+    response.pipe(res);
+});
+
 mockAPI.listen(port, () => {
     console.log(`Mock API server started on port: ${port}`);
 });

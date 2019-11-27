@@ -25,7 +25,7 @@ const ExampleView : React.FC = () => {
                     membership: exampleData.membership
                 });
 
-                const response: Membership = await Fetcher('/json/mockMembership.json');
+                const response: Membership = await Fetcher('http://localhost:8080/api/member/1234/membership');
 
                 setExampleData({
                     loaded: true,
