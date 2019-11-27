@@ -6,7 +6,7 @@ interface Props {
 }
 
 /* Enforce consistent date format */
-export const Date : React.FC<Props> = props => {
+export const FormattedDate : React.FC<Props> = props => {
     const { date } = props;
 
     return (
