@@ -82,5 +82,17 @@
     {
         "firstName": "Proposition",
         "lastName": "Joe"
+    },
+    {
+        "firstName": "Marlo",
+        "lastName": "Stanfield"
+    },
+    {
+        "firstName": "Poot",
+        "lastName": null
+    },
+    {
+        "firstName": "Stan",
+        "lastName": "Valchek"
     }
 ]

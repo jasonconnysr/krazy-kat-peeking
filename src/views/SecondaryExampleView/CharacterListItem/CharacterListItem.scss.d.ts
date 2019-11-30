@@ -1,7 +1,8 @@
 export interface ICharacterListItemScss {
   block: string;
-  "block--selected": string;
-  blockSelected: string;
+  button: string;
+  "button--selected": string;
+  buttonSelected: string;
 }
 
 export const locals: ICharacterListItemScss;
