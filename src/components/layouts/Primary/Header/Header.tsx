@@ -1,5 +1,7 @@
 import * as React from 'react';
 import MemberContext from '../../../../contexts/MemberContext';
+import LogoLink from '../../LogoLink';
+import Auth from '../Auth';
 import styles from './Header.scss';
 
 interface Props {
@@ -14,7 +16,14 @@ const Header : React.FC<Props> = props => {
             {member => (
                 <>
                     <header className={styles.block}>
+                        <LogoLink
+                            href={'/home'}
+                            format={'full'}
+                        />
+
                         <h1>Welcome to ShopRunner {member.firstName} {member.lastName}!</h1>
+
+                        <Auth/>
                     </header>
 
                     {children}

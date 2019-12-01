@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Copyright from '../../Copyright';
-import FatFooter from '../../FatFooter';
+import FatFooter from '../FatFooter';
 import styles from './Footer.scss';
 
 

@@ -1,23 +1,10 @@
-@mixin bottom-fade {
-  &::after {
-    content: '';
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255, 1));
-    width: 100%;
-    height: 2em;
-    pointer-events: none;
-    position: fixed;
-    bottom: 0;
-  }
-}
-
 @mixin hide-text {
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
 
-// make text accessible to screen readers (sr)
-@mixin show-for-sr {
+@mixin visually-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
