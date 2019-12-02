@@ -11,7 +11,7 @@ Lightweight boilerplate for React with TypeScript.
 `yarn start` spins up an instance of a webpack dev server on port 3000 with watch enabled.
 
 ### Start mock API
-`yarn api:dev` starts a mock API express server on port 8080 with respawn enabled.
+From [./api](./api) `yarn api:dev` starts a mock API express server on port 8080 with `respawn` enabled.
 
 ## TODO
 
@@ -26,6 +26,8 @@ Lightweight boilerplate for React with TypeScript.
 - set internal list for list item component
 
 ## Potentially Useful
+
+From [Awesome React Context](https://github.com/diegohaz/awesome-react-context):
 
 - [react-loadable-context](https://github.com/crubier/react-loadable-context)
 - [react-context-global-state](https://github.com/dai-shi/react-context-global-state)

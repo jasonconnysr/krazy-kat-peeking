@@ -6,7 +6,7 @@ export const Copyright : React.FC = () => {
 
     return (
         <div className={styles.block}>
-            <p>&copy; 2019 ShopRunner. All rights reserved. rev ${commitHash}</p>
+            <p>&copy; 2019 ShopRunner. All rights reserved. rev {commitHash}</p>
         </div>
     );
 };
