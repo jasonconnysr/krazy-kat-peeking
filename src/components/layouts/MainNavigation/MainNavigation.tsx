@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Navigation.scss';
+import styles from './MainNavigation.scss';
 
-const Navigation : React.FC = () => {
+const MainNavigation : React.FC = () => {
     return (
         <nav className={styles.block}>
             <ul className={styles.list}>
@@ -60,4 +60,4 @@ const Navigation : React.FC = () => {
     )
 };
 
-export default Navigation;
+export default MainNavigation;

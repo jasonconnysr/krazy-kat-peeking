@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Fetcher } from '../../fetcher';
 import CharactersContext, { defaultCharacters, Character } from '../../contexts/CharactersContext';
-import { TertiaryLayout } from '../../components/layouts';
+import { SecondaryLayout } from '../../components/layouts';
 import CharacterList from './CharacterList';
 import styles from './SecondaryExampleView.scss';
 
@@ -48,7 +48,7 @@ const SecondaryExampleView : React.FC = () => {
 
     return (
         <CharactersContext.Provider value={exampleCharacters.characters}>
-            <TertiaryLayout
+            <SecondaryLayout
                 error={false}
                 errorMessage={null}
                 loaded={true}
@@ -56,7 +56,7 @@ const SecondaryExampleView : React.FC = () => {
                 <section className={styles.intro}>
                     <h1>Secondary Example</h1>
 
-                    <p>A slimmed down template to focus user actions.</p>
+                    <p>An alternate page layout.</p>
                 </section>
 
                 <section className={styles.action}>
@@ -66,7 +66,7 @@ const SecondaryExampleView : React.FC = () => {
 
                     <CharacterList/>
                 </section>
-            </TertiaryLayout>
+            </SecondaryLayout>
         </CharactersContext.Provider>
     );
 };

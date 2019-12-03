@@ -1,4 +1,4 @@
-export interface INavigationScss {
+export interface IMainNavigationScss {
   block: string;
   link: string;
   "link--active": string;
@@ -8,5 +8,5 @@ export interface INavigationScss {
   listItem: string;
 }
 
-export const locals: INavigationScss;
+export const locals: IMainNavigationScss;
 export default locals;

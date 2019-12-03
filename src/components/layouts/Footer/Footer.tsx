@@ -1,14 +1,17 @@
 import * as React from 'react';
-import Copyright from '../../Copyright';
-import FatFooter from '../FatFooter';
+import Copyright from '../Copyright';
 import styles from './Footer.scss';
 
+interface Props {
+    children?: React.ReactNode;
+}
 
+const Footer : React.FC<Props> = props => {
+    const { children } = props;
 
-const Footer : React.FC = () => {
     return (
         <footer className={styles.block}>
-            <FatFooter/>
+            {children}
 
             <Copyright/>
         </footer>

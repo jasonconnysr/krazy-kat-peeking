@@ -3,11 +3,10 @@ import ErrorBoundary from '../../ErrorBoundary';
 import ErrorMessage from '../../ErrorMessage';
 import Loading from '../../Loading';
 import Footer from '../Footer';
-import { FatFooter } from './FatFooter/FatFooter';
 import Header from '../Header';
 import MainNavigation from '../MainNavigation';
-import styles from './PrimaryLayout.scss'
 import classnames from 'classnames';
+import styles from './SecondaryLayout.scss'
 
 interface Props {
     classname?: string;
@@ -16,17 +15,10 @@ interface Props {
     loaded: boolean;
 }
 
-const PrimaryLayout : React.FC<Props> = props => {
+const SecondaryLayout : React.FC<Props> = props => {
     const { children, classname, error, errorMessage, loaded } = props;
     return (
         <ErrorBoundary>
-            <a
-                href="#main-content"
-                className={styles.skipNavigation}
-            >
-                Skip to main content
-            </a>
-
             <Header>
                 <MainNavigation/>
             </Header>
@@ -45,11 +37,9 @@ const PrimaryLayout : React.FC<Props> = props => {
                 )}
             </main>
 
-            <Footer>
-                <FatFooter/>
-            </Footer>
+            <Footer/>
         </ErrorBoundary>
     );
 };
 
-export default PrimaryLayout;
+export default SecondaryLayout;

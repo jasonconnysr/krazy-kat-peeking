@@ -1,6 +1,6 @@
 import * as React from 'react';
-import MemberContext from '../../../../contexts/MemberContext';
-import LogoLink from '../../LogoLink';
+import MemberContext from '../../../contexts/MemberContext';
+import LogoLink from '../LogoLink';
 import Auth from '../Auth';
 import styles from './Header.scss';
 
