@@ -20,7 +20,7 @@ const SecondaryLayout : React.FC<Props> = props => {
         <ErrorBoundary>
             <Header/>
 
-            <main className={classnames(
+            <main id={'main-content'} className={classnames(
                     styles.main,
                     {[`${classname}`]: classname}
                 )}

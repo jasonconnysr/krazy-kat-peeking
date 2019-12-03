@@ -1,6 +1,6 @@
 export interface ISecondaryExampleViewScss {
-  block: string;
-  heading: string;
+  action: string;
+  intro: string;
 }
 
 export const locals: ISecondaryExampleViewScss;

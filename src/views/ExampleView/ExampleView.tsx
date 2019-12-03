@@ -47,20 +47,23 @@ const ExampleView : React.FC = () => {
     return (
         <MembershipContext.Provider value={exampleData.membership}>
             <PrimaryLayout
-                classname={styles.block}
                 error={false}
                 errorMessage={''}
                 loaded={exampleData.loaded}
             >
-                <h1 className={styles.heading}>Example View</h1>
+                <section className={styles.intro}>
+                    <h1>Example View</h1>
 
-                <p>This view includes data from two contexts: Member and Membership</p>
+                    <p>This view includes data from two contexts: Member and Membership</p>
+                </section>
 
                 <AnotherComponent/>
 
                 <ExampleComponent/>
 
-                <Button handleClick={handleCancelMembershipClick} text={'Cancel Membership'}/>
+                <section className={styles.buttons}>
+                    <Button handleClick={handleCancelMembershipClick} text={'Cancel Membership'}/>
+                </section>
             </PrimaryLayout>
         </MembershipContext.Provider>
     );

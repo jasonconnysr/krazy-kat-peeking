@@ -1,6 +1,5 @@
 export interface IOtherExampleViewScss {
-  block: string;
-  heading: string;
+  intro: string;
   list: string;
   "list-item": string;
   listItem: string;

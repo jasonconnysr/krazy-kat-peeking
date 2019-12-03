@@ -49,14 +49,15 @@ const OtherExampleView : React.FC = () => {
     return (
         <OrdersContext.Provider value={exampleOrders.orders}>
             <PrimaryLayout
-                classname={styles.block}
                 error={exampleOrders.error}
                 errorMessage={exampleOrders.errorMessage}
                 loaded={exampleOrders.loaded}
             >
-                <h1 className={styles.heading}>Other Example View</h1>
+                <section className={styles.intro}>
+                    <h1>Other Example View</h1>
 
-                <p>This view displays a list of orders from the Order context.</p>
+                    <p>This view displays a list of orders from the Order context.</p>
+                </section>
 
                 <OrderList/>
             </PrimaryLayout>

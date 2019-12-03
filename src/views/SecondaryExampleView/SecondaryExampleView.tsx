@@ -49,16 +49,17 @@ const SecondaryExampleView : React.FC = () => {
     return (
         <CharactersContext.Provider value={exampleCharacters.characters}>
             <SecondaryLayout
-                classname={styles.block}
                 error={false}
                 errorMessage={null}
                 loaded={true}
             >
-                <h1 className={styles.heading}>Secondary Example</h1>
+                <section className={styles.intro}>
+                    <h1>Secondary Example</h1>
 
-                <p>A slimmed down template to focus user actions.</p>
+                    <p>A slimmed down template to focus user actions.</p>
+                </section>
 
-                <section>
+                <section className={styles.action}>
                     <h2>Hi!</h2>
 
                     <p>Choose your favorites...</p>
