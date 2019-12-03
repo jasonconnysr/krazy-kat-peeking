@@ -38,6 +38,16 @@ const MainNavigation : React.FC = () => {
 
                 <li className={styles.listItem}>
                     <NavLink
+                        to={'/form-example'}
+                        className={styles.link}
+                        activeClassName={styles.linkActive}
+                    >
+                        Form Example
+                    </NavLink>
+                </li>
+
+                <li className={styles.listItem}>
+                    <NavLink
                         to={'/error'}
                         className={styles.link}
                         activeClassName={styles.linkActive}

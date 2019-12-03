@@ -5,13 +5,6 @@ import CustomLoadable from './ReactLoadable';
 // ATTENTION!!
 // The webpackChunkName comment is important. webpack uses this to dynamically load page components.
 // The value *must* be unique and ideally match the corresponding const/component.
-const SecondaryExampleView = CustomLoadable({
-    loader: () => import(
-        '../views/SecondaryExampleView'
-        /* webpackChunkName: "SecondaryExampleView" */
-        )
-});
-
 const ErrorView = CustomLoadable({
     loader: () => import(
         '../views/ErrorView'
@@ -23,6 +16,13 @@ const ExampleView = CustomLoadable({
     loader: () => import(
         '../views/ExampleView'
         /* webpackChunkName: "ExampleView" */
+        )
+});
+
+const FormExampleView = CustomLoadable({
+    loader: () => import(
+        '../views/FormExampleView'
+        /* webpackChunkName: "FormExampleView" */
         )
 });
 
@@ -40,6 +40,13 @@ const OtherExampleView = CustomLoadable({
         )
 });
 
+const SecondaryExampleView = CustomLoadable({
+    loader: () => import(
+        '../views/SecondaryExampleView'
+        /* webpackChunkName: "SecondaryExampleView" */
+        )
+});
+
 const Routes = () => {
     return (
         <Switch>
@@ -53,6 +60,12 @@ const Routes = () => {
                 exact={true}
                 path={'/example'}
                 component={ExampleView}
+            />
+
+            <Route
+                exact={true}
+                path={'/form-example'}
+                component={FormExampleView}
             />
 
             <Route

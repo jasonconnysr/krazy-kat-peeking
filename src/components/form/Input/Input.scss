@@ -1,0 +1,84 @@
+@import '../../../styles/variables/colors';
+
+.block {
+  border: none;
+  padding: 0;
+  position: relative;
+}
+
+.input {
+  border: 1px solid $neutral-50;
+  border-radius: .3em;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: $neutral-20;
+  height: 3em;
+  margin: 0 0 1em;
+  padding: .8em .5em .1em;
+  width: 100%;
+
+  &:focus {
+    border-color: $brand-color-2;
+    border-width: .1em;
+    box-shadow: none;
+    outline: none;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: $neutral-70;
+    cursor: not-allowed;
+  }
+
+  &--has-value {
+    border-color: $neutral-10;
+  }
+
+  &--has-error {
+    background: transparent url('error.svg') 98% center no-repeat;
+    border-color: $brand-color-3;
+  }
+}
+
+.label {
+  font-weight: 400;
+  left: 0.5em;
+  opacity: 0.85;
+  pointer-events: none;
+  position: absolute;
+  transform: translate3d(0.5em, 50%, 0) scale(1);
+  transform-origin: 0.5em top;
+  transition: 240ms;
+
+  &--focused {
+    background-color: $brand-color-6;
+    color: $neutral-30;
+    opacity: 1;
+    position: absolute;
+    left: 17px;
+    top: -3px;
+    transform: scale(0.75);
+  }
+}
+
+.password-toggle {
+  cursor: pointer;
+  font-size: .8125em;
+  position: absolute;
+  right: 1.5em;
+  top: 1.25em;
+}
+
+.error-text {
+  color: $brand-color-3;
+  font-size: .875em;
+  font-weight: bold;
+  margin: -1em 0 1em;
+  text-align: left;
+}
+
+.help-text {
+  font-size: .6875em;
+  margin: -1em 0 1em;
+  text-align: left;
+}

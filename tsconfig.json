@@ -8,6 +8,7 @@
             "esnext"
         ],
         "allowJs": false,
+        "allowSyntheticDefaultImports": true,
         "baseUrl": "/",
         "downlevelIteration": true,
         "experimentalDecorators": true,

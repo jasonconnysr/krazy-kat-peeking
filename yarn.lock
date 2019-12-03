@@ -134,6 +134,13 @@
   resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/@types/classnames/-/classnames-2.2.9.tgz#d868b6febb02666330410fe7f58f3c4b8258be7b"
   integrity sha1-2Gi2/rsCZmMwQQ/n9Y88S4JYvns=
 
+"@types/cleave.js@^1.4.1":
+  version "1.4.1"
+  resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/@types/cleave.js/-/cleave.js-1.4.1.tgz#1eaa12dcbd1f2187fc580f0bf84dbc9f8834e333"
+  integrity sha1-HqoS3L0fIYf8WA8L+E28n4g04zM=
+  dependencies:
+    "@types/react" "*"
+
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
@@ -162,6 +169,18 @@
   version "7.0.3"
   resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/@types/json-schema/-/json-schema-7.0.3.tgz#bdfd69d61e464dcc81b25159c270d75a73c1a636"
   integrity sha1-vf1p1h5GTcyBslFZwnDXWnPBpjY=
+
+"@types/lodash.uniqueid@^4.0.6":
+  version "4.0.6"
+  resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/@types/lodash.uniqueid/-/lodash.uniqueid-4.0.6.tgz#63f1354f9193896f77e4510d4b7bc763d1479b9a"
+  integrity sha1-Y/E1T5GTiW935FENS3vHY9FHm5o=
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  version "4.14.149"
+  resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/@types/lodash/-/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
+  integrity sha1-E0LWPZSMYGKDj7+WEBL3TU5jhEA=
 
 "@types/loglevel@^1.6.3":
   version "1.6.3"
@@ -1331,6 +1350,11 @@ clean-webpack-plugin@^3.0.0:
   dependencies:
     "@types/webpack" "^4.4.31"
     del "^4.1.1"
+
+cleave.js@^1.5.3:
+  version "1.5.3"
+  resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/cleave.js/-/cleave.js-1.5.3.tgz#1ef36e1375dea289bffeefe8ebb1e3ef2ee23240"
+  integrity sha1-HvNuE3Xeoom//u/o67Hj7y7iMkA=
 
 cli-cursor@^2.1.0:
   version "2.1.0"
@@ -4335,6 +4359,11 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
+
+lodash.uniqueid@^4.0.1:
+  version "4.0.1"
+  resolved "https://artifactory.k8s.devops.s-9.us/artifactory/api/npm/npm/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
+  integrity sha1-MmjyanyI5PSxdY1nknGBTjH6WyY=
 
 lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.5, lodash@~4.17.10:
   version "4.17.15"
