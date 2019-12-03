@@ -28,13 +28,13 @@ const SecondaryLayout : React.FC<Props> = props => {
                     {[`${classname}`]: classname}
                 )}
             >
-                <Loading loaded={loaded}>
-                    {children}
-                </Loading>
-
                 {error && (
                     <ErrorMessage errorMessageText={errorMessage} />
                 )}
+
+                <Loading loaded={loaded}>
+                    {children}
+                </Loading>
             </main>
 
             <Footer/>

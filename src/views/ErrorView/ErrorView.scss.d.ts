@@ -1,6 +1,7 @@
 export interface IErrorViewScss {
-  block: string;
-  heading: string;
+  intro: string;
+  "video-container": string;
+  videoContainer: string;
 }
 
 export const locals: IErrorViewScss;

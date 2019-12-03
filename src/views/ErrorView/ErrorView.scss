@@ -1,12 +1,10 @@
 @import "../../styles/variables/colors";
 
-.block {
-  margin: 0 auto;
-  max-width: 75rem;
-  min-height: 50vh;
-}
-
-.heading {
+.intro {
   border-bottom: 1px solid $brand-color-4;
   padding: 0 2rem .5rem;
+}
+
+.video-container {
+  padding: 1rem 2rem;
 }
