@@ -64,6 +64,8 @@ type State = {
 export const Input : React.FC<Props> = props => {
     const { disabled, errorText, formattingOptions, helpText, hideLabel, id, labelText, required, type, value } = props;
     const uniqueIdValue = id || uniqueId('form-input'); // a11y requires uniqueIds
+    const uniqueHelpTextId = uniqueId(`${id}helpText`);
+    const uniqueErrorTextId = uniqueId(`${id}errorText`);
     const [inputState, setInputState] = React.useState({
         disabled: disabled,
         focused: false,
@@ -94,6 +96,7 @@ export const Input : React.FC<Props> = props => {
 
             {!formattingOptions && (
                 <input
+                    aria-labelledby={`${uniqueIdValue} ${uniqueHelpTextId} ${uniqueErrorTextId}`}
                     className={styles.input}
                     disabled={inputState.disabled}
                     id={uniqueIdValue}
@@ -114,13 +117,19 @@ export const Input : React.FC<Props> = props => {
             )}
 
             {errorText && (
-                <div className={styles.errorText}>
+                <div
+                    id={uniqueErrorTextId}
+                    className={styles.errorText}
+                >
                     {errorText}
                 </div>
             )}
 
             {helpText && (
-                <div className={styles.helpText}>
+                <div
+                    id={uniqueHelpTextId}
+                    className={styles.helpText}
+                >
                     {helpText}
                 </div>
             )}

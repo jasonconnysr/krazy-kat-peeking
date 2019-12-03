@@ -41,6 +41,7 @@
 }
 
 .label {
+  background-color: transparent;
   font-weight: 400;
   left: 0.5em;
   opacity: 0.85;
@@ -51,7 +52,6 @@
   transition: 240ms;
 
   &--focused {
-    background-color: $brand-color-6;
     color: $neutral-30;
     opacity: 1;
     position: absolute;
