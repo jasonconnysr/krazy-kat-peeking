@@ -4,7 +4,7 @@ import ErrorMessage from '../../ErrorMessage';
 import Loading from '../../Loading';
 import Footer from './Footer';
 import Header from './Header';
-import styles from './SecondaryLayout.scss'
+import styles from './TertiaryLayout.scss'
 import classnames from 'classnames';
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
     loaded: boolean;
 }
 
-const SecondaryLayout : React.FC<Props> = props => {
+const TertiaryLayout : React.FC<Props> = props => {
     const { children, classname, error, errorMessage, loaded } = props;
     return (
         <ErrorBoundary>
@@ -39,4 +39,4 @@ const SecondaryLayout : React.FC<Props> = props => {
     );
 };
 
-export default SecondaryLayout;
+export default TertiaryLayout;

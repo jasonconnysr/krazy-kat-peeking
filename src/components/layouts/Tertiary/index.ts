@@ -1,6 +1,6 @@
 /* tslint:disable:file-name-casing */
-import SecondaryLayout from './SecondaryLayout';
+import TertiaryLayout from './SecondaryLayout';
 export {
-    SecondaryLayout
+    TertiaryLayout
 };
 /* tslint:enable:file-name-casing */
