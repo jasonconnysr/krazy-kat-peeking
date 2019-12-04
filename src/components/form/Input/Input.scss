@@ -6,15 +6,40 @@
   position: relative;
 }
 
+.label {
+  background-color: transparent;
+  color: $neutral-10;
+  font-size: .875em;
+  font-weight: 400;
+  left: 0.5em;
+  line-height: 1.5;
+  opacity: 0.85;
+  pointer-events: none;
+  position: absolute;
+  transform: translate3d(0.5em, 50%, 0) scale(1);
+  transform-origin: 0.5em top;
+  transition: 240ms;
+
+  &--focused {
+    color: $neutral-20;
+    opacity: 1;
+    position: absolute;
+    left: 1em;
+    top: 0;
+    transform: scale(0.75);
+  }
+}
+
 .input {
   border: 1px solid $neutral-50;
   border-radius: .3em;
   box-shadow: none;
   box-sizing: border-box;
   color: $neutral-20;
+  font-size: .875em;
   height: 3em;
   margin: 0 0 1em;
-  padding: .8em .5em .1em;
+  padding: .75em .5em;
   width: 100%;
 
   &:focus {
@@ -40,33 +65,12 @@
   }
 }
 
-.label {
-  background-color: transparent;
-  font-weight: 400;
-  left: 0.5em;
-  opacity: 0.85;
-  pointer-events: none;
-  position: absolute;
-  transform: translate3d(0.5em, 50%, 0) scale(1);
-  transform-origin: 0.5em top;
-  transition: 240ms;
-
-  &--focused {
-    color: $neutral-30;
-    opacity: 1;
-    position: absolute;
-    left: 17px;
-    top: -3px;
-    transform: scale(0.75);
-  }
-}
-
 .password-toggle {
   cursor: pointer;
-  font-size: .8125em;
+  font-size: .75em;
   position: absolute;
   right: 1.5em;
-  top: 1.25em;
+  top: .75em;
 }
 
 .error-text {

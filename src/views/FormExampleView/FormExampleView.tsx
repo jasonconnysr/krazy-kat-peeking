@@ -5,7 +5,7 @@ import { Input } from '../../components/form/Input/Input';
 import styles from './FormExampleView.scss';
 
 export const FormExampleView : React.FC = () => {
-    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmit = (event: React.FormEvent<HTMLButtonElement>) => {
         event.preventDefault();
         console.log('submit clicked!');
     };

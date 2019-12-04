@@ -2,11 +2,11 @@ import * as React from 'react';
 import uniqueId from 'lodash.uniqueid';
 
 // https://github.com/nosir/cleave.js
-// import * as Cleave from 'cleave.js/react';
+import Cleave from 'cleave.js/react';
 // required for phone numbers
-// import 'cleave.js/dist/addons/cleave-phone.us.js';
+import 'cleave.js/dist/addons/cleave-phone.us.js';
 
-// import classnames from 'classnames';
+import classnames from 'classnames';
 import styles from './Input.scss';
 
 // https://www.typescriptlang.org/docs/handbook/advanced-types.html
@@ -31,75 +31,134 @@ type InputType =
     'sr-creditcard' |
     'sr-phone' |
     'sr-ccexpdate'
-    ;
+;
 
-interface Props {
+interface IProps {
     id?: string,
     className?: string,
     disabled?: boolean,
     type: InputType,
     errorText?: string,
-    formattingOptions?: object,
+    formattingOptions?: object, // does cleave.js provide something better?
     hideLabel?: boolean,
     labelText: string,
     helpText?: string,
     name: string,
     value?: string,
     required?: boolean,
-    onChange?: (e: React.SyntheticEvent<HTMLElement>) => void,
-    onFocus?: (e: React.SyntheticEvent<HTMLElement>) => void
+    onBlur?: (event: React.SyntheticEvent<HTMLElement>) => void,
+    onChange?: (event: React.ChangeEvent<HTMLElement>) => void,
+    onFocus?: (event: React.SyntheticEvent<HTMLElement>) => void
 }
 
-/*
-type State = {
-    disabled?: boolean,
-    errorTextParsed?: string,
-    focused?: boolean,
-    required?: boolean,
-    showPassword?: boolean,
-    valid?: boolean
-};
-*/
+interface IState {
+    disabled: boolean,
+    errorText?: string | null,
+    focused: boolean,
+    required: boolean,
+    showPassword: boolean,
+    valid: boolean | null,
+    value?: string | null
+}
 
-export const Input : React.FC<Props> = props => {
+export const Input : React.FC<IProps> = props => {
     const { disabled, errorText, formattingOptions, helpText, hideLabel, id, labelText, required, type, value } = props;
-    const uniqueIdValue = id || uniqueId('form-input'); // a11y requires uniqueIds
+
+    // a11y requires uniqueIds
+    const uniqueIdValue = id || uniqueId('form-input');
     const uniqueHelpTextId = uniqueId(`${id}helpText`);
     const uniqueErrorTextId = uniqueId(`${id}errorText`);
-    const [inputState, setInputState] = React.useState({
-        disabled: disabled,
+
+    const [inputState, setInputState] = React.useState<IState>({
+        disabled: disabled || false,
         focused: false,
-        required: required,
-        showPassword: false
+        required: required || false,
+        showPassword: false,
+        valid: null
     });
+
+    const handleBlur = () => {
+        if (!inputState.value) {
+            setInputState(inputState => ({
+                ...inputState,
+                focused: false
+            }));
+        }
+    };
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        event.persist();
+        setInputState(inputState => ({
+            ...inputState,
+            value: event.target.value
+        }));
+   };
+
+    const handleFocus = () => {
+        setInputState(inputState => ({
+            ...inputState,
+            focused: true
+        }));
+    };
 
     const togglePassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        setInputState({
-            disabled: inputState.disabled,
-            focused: inputState.focused,
-            required: inputState.required,
+
+        setInputState(inputState => ({
+            ...inputState,
             showPassword: !inputState.showPassword
-        });
+        }));
     };
 
     return (
         <fieldset className={styles.block}>
             {!hideLabel && (
                 <label
-                    className={styles.label}
+                    className={classnames(
+                        styles.label,
+                        {[`${styles.labelFocused}`]: inputState.focused || value}
+                    )}
                     htmlFor={uniqueIdValue}
                 >
                     {labelText}
                 </label>
             )}
 
-            {!formattingOptions && (
-                <input
+            {formattingOptions ? (
+                <Cleave
                     aria-labelledby={`${uniqueIdValue} ${uniqueHelpTextId} ${uniqueErrorTextId}`}
-                    className={styles.input}
+                    className={classnames(
+                        styles.input,
+                        {
+                            [styles.inputHasValue] : inputState.value,
+                            [styles.inputHasError] : inputState.errorText
+                        }
+                    )}
                     disabled={inputState.disabled}
                     id={uniqueIdValue}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    onFocus={handleFocus}
+                    options={formattingOptions}
+                    required={inputState.required}
+                    type={inputState.showPassword ? 'text' : type}
+                    value={value}
+                />
+            ) : (
+                <input
+                    aria-labelledby={`${uniqueIdValue} ${uniqueHelpTextId} ${uniqueErrorTextId}`}
+                    className={classnames(
+                        styles.input,
+                        {
+                            [styles.inputHasValue] : inputState.value,
+                            [styles.inputHasError] : inputState.errorText
+                        }
+                    )}
+                    disabled={inputState.disabled}
+                    id={uniqueIdValue}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    onFocus={handleFocus}
                     required={inputState.required}
                     type={inputState.showPassword ? 'text' : type}
                     value={value}
@@ -136,157 +195,3 @@ export const Input : React.FC<Props> = props => {
         </fieldset>
     )
 };
-
-/*
-export class InputOld extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-
-        this.state = {
-            disabled: this.props.disabled,
-            focused: false,
-            showPassword: false,
-            required: this.props.required
-        };
-    }
-
-    componentDidUpdate() {
-        const {errorText} = this.props;
-
-        if (errorText) {
-            let errorTextParsed: string = Array.isArray(errorText.slice()) ? errorText[0] : errorText;
-
-            if  (errorTextParsed !== this.state.errorTextParsed) {
-                this.setState({
-                    errorTextParsed: errorTextParsed
-                });
-            }
-        }
-    }
-
-    onFocus = () => {
-        this.setState({focused: true});
-    }
-
-    onBlur = () => {
-        if (!this.props.value) {
-            this.setState({focused: false});
-        }
-    }
-
-    togglePassword = (e: any) => {
-        e.preventDefault();
-        this.setState({
-            showPassword: !this.state.showPassword
-        });
-    }
-
-    render() {
-        const {
-            id,
-            type,
-            required,
-            disabled,
-            onChange,
-            className,
-            errorText,
-            formattingOptions,
-            hideLabel,
-            labelText,
-            helpText,
-            name,
-            value
-        } = this.props;
-
-        const {errorTextParsed, focused, showPassword} = this.state;
-        const uniqueIdValue = id || uniqueId('form-input'); // a11y requires uniqueIds
-
-        let labelCss = classnames(
-                            styles.label,
-                            {[`${styles.labelFocused}`]: focused || value}
-                        );
-
-        let inputCss = classnames(
-                            styles.input,
-                            {
-                                [`${styles.inputHasValue}`]: value,
-                                [`${styles.inputHasError}`]: errorText
-                            }
-                       );
-
-        return (
-            <fieldset className={classnames(styles.block, {[`${className}`]: className})}>
-                {!hideLabel && (
-                    <label
-                        className={labelCss}
-                        htmlFor={uniqueIdValue}
-                    >
-                        {labelText}
-                    </label>
-                )}
-
-                {!formattingOptions && (
-                    <input
-                        aria-label={hideLabel && typeof labelText === 'string' ? labelText : ''}
-                        className={inputCss}
-                        type={showPassword ? 'text' : type}
-                        id={uniqueIdValue}
-                        required={required}
-                        placeholder={type === 'search' ? 'Search products, brands, and stores' : ''}
-                        disabled={disabled}
-                        name={name}
-                        value={value}
-                        onChange={onChange}
-                        onFocus={this.onFocus}
-                        onBlur={this.onBlur}
-                    />
-                )}
-
-                {formattingOptions && (
-                    <Cleave
-                        className={classnames(
-                            styles.input,
-                            {
-                                [`${styles.inputHasValue}`]: value,
-                                [`${styles.inputHasError}`]: errorText
-                            }
-                        )}
-                        type={'text'}
-                        id={uniqueIdValue}
-                        required={required}
-                        disabled={disabled}
-                        name={name}
-                        value={value}
-                        onChange={onChange}
-                        onFocus={this.onFocus}
-                        onBlur={this.onBlur}
-                        options={formattingOptions}
-                    />
-                )}
-
-                {type === 'password' && (
-                    <button
-                        className={styles.passwordToggle}
-                        onClick={this.togglePassword}
-                        type={'button'}
-                    >
-                        {this.state.showPassword === true ? 'Hide' : 'Show'}
-                    </button>
-                )}
-
-                {errorText && (
-                    <div className={styles.errorText}>
-                        {errorTextParsed}
-                    </div>
-                )}
-
-                {helpText && (
-                    <div className={styles.helpText}>
-                        {helpText}
-                    </div>
-                )}
-            </fieldset>
-        );
-    }
-}
-*/
