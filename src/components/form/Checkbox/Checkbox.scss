@@ -1,0 +1,71 @@
+@import "../../../styles/variables/colors";
+
+.block {
+  align-items: center;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.input {
+  border: none;
+  display: block;
+  height: calc(1rem + 4px);
+  margin: 0;
+  position: relative;
+  width: calc(1rem + 4px);
+
+  &:before {
+    background-color: $neutral-80;
+    border: 2px solid $neutral-40;
+    border-radius: 4px;
+    content: '';
+    cursor: pointer;
+    height: 1rem;
+    position: absolute;
+    width: 1rem;
+    z-index: 10;
+  }
+
+  &:checked {
+    &:before {
+      background-color: $brand-color-2;
+      border-color: $brand-color-2;
+    }
+
+    &:after {
+      border-bottom: 2px solid $neutral-80;
+      border-left: 2px solid $neutral-70;
+      content: '';
+      height: 4px;
+      left: 5px;
+      position: absolute;
+      top: 5px;
+      transform: rotate(-45deg);
+      width: 8px;
+      z-index: 20;
+    }
+  }
+
+  &:focus {
+    border-width: .1em;
+    box-shadow: none;
+    outline: none;
+
+    &:before {
+      border-color: $brand-color-2;
+
+    }
+  }
+}
+
+.label {
+  color: $neutral-20;
+  cursor: pointer;
+  display: block;
+  font-size: .75em;
+  font-weight: 500;
+  line-height: 1.5;
+  padding-left: .75em;
+  text-align: left;
+  text-transform: capitalize;
+}

@@ -2,6 +2,7 @@
 
 .block {
   border: none;
+  margin-bottom: 1rem;
   padding: 0;
   position: relative;
 }
@@ -38,7 +39,6 @@
   color: $neutral-20;
   font-size: .875em;
   height: 3em;
-  margin: 0 0 1em;
   padding: .75em .5em;
   width: 100%;
 

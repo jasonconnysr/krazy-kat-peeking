@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TertiaryLayout } from '../../components/layouts';
 import { Button } from '../../components/Button';
-import { Input } from '../../components/form/Input/Input';
+import { Checkbox, Input } from '../../components/form';
 import styles from './FormExampleView.scss';
 
 export const FormExampleView : React.FC = () => {
@@ -38,6 +38,12 @@ export const FormExampleView : React.FC = () => {
                         type={'password'}
                         labelText={'password'}
                         name={'password'}
+                    />
+
+                    <Checkbox
+                        labelText={'Agree or else'}
+                        name={'termsAgreement'}
+                        value={'agree'}
                     />
 
                     <Button
