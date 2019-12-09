@@ -1,0 +1,64 @@
+@import '../variables/colors';
+
+p,
+li {
+  line-height: 1.375;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0 auto 1em;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.375em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.25em;
+  line-height: 1.363636363636364;
+}
+
+h4 {
+  font-size: 1em;
+  line-height: 1.45;
+}
+
+ul {
+  list-style: none;
+}
+
+dl, ol, ul {
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+dd, dt, li {
+  margin: 0;
+  padding: 0;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+section {
+  *:last-child {
+    margin-bottom: 0;
+  }
+}

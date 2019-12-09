@@ -1,10 +1,11 @@
-@import "../../styles/variables/colors";
-@import "../../styles/mixins/icons";
+@import "../GlobalStyles/scss/variables/colors";
+@import "../GlobalStyles/scss/mixins/icons";
 
 .block {
   background-color: $brand-color-2;
   border-radius: 2rem;
   box-shadow: none;
+  cursor: pointer;
   display: inline-block;
   color: white;
   font-weight: 600;

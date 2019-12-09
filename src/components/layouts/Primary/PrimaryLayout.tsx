@@ -32,9 +32,9 @@ const PrimaryLayout : React.FC<Props> = props => {
             </Header>
 
             <main id={'main-content'} className={classnames(
-                    styles.main,
-                    {[`${classname}`]: classname}
-                )}
+                styles.main,
+                {[`${classname}`]: classname}
+            )}
             >
                 {error && (
                     <ErrorMessage errorMessageText={errorMessage} />

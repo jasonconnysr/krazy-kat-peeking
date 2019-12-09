@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Route, Router } from 'react-router';
+import GlobalStyles from './components/GlobalStyles';
 import Routes from './routing/Routes';
 import CustomHistory from './routing/CustomHistory';
 import { Fetcher } from './fetcher';
 import MemberContext, { defaultMember, Member } from './contexts/MemberContext';
-import './styles/styles.scss';
 
 const KrazyKatPeeking : React.FC = () => {
     const [data, setData] = React.useState({
@@ -42,9 +42,11 @@ const KrazyKatPeeking : React.FC = () => {
 
     return (
         <MemberContext.Provider value={data.member}>
-            <Router history={CustomHistory}>
-                <Route path={'/'} component={Routes}/>
-            </Router>
+            <GlobalStyles>
+                <Router history={CustomHistory}>
+                    <Route path={'/'} component={Routes}/>
+                </Router>
+            </GlobalStyles>
         </MemberContext.Provider>
     );
 };
