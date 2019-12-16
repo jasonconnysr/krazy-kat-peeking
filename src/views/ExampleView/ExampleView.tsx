@@ -7,6 +7,33 @@ import ExampleComponent from './ExampleComponent';
 import { Button } from '../../components/Button';
 import styles from './ExampleView.scss';
 
+const MainNavBarLinks: Array<MainNavBarLink> = [
+    {
+        name: "Example",
+        path: "/example"
+    },
+    {
+        name: "Other Example",
+        path: "/other-example"
+    },
+    {
+        name: "Secondary Example",
+        path: "/secondary-example"
+    },
+    {
+        name: "Form Example",
+        path: "/form-example"
+    },
+    {
+        name: "Error",
+        path: "/error"
+    },
+    {
+        name: "Loading",
+        path: "/loading"
+    }
+];
+
 const ExampleView : React.FC = () => {
     const [exampleData, setExampleData] = React.useState({
         loaded: false,
@@ -49,6 +76,7 @@ const ExampleView : React.FC = () => {
             <PrimaryLayout
                 error={false}
                 errorMessage={''}
+                links={MainNavBarLinks}
                 loaded={exampleData.loaded}
             >
                 <section className={styles.intro}>

@@ -5,7 +5,7 @@ import styles from './LoadingView.scss';
 const LoadingView : React.FC = () => {
     return (
         <PrimaryLayout
-            classname={styles.block}
+            classes={styles.block}
             error={false}
             errorMessage={''}
             loaded={false}

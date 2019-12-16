@@ -4,7 +4,7 @@ import ErrorMessage from '../../ErrorMessage';
 import Loading from '../../Loading';
 import Footer from '../Footer';
 import Header from '../Header';
-import MainNavigation from '../MainNavigation';
+import MainNavBar from '../MainNavBar';
 import classnames from 'classnames';
 import styles from './SecondaryLayout.scss'
 
@@ -12,15 +12,16 @@ interface Props {
     classname?: string;
     error: boolean,
     errorMessage: string | null,
+    links?: Array<MainNavBarLink>,
     loaded: boolean;
 }
 
 const SecondaryLayout : React.FC<Props> = props => {
-    const { children, classname, error, errorMessage, loaded } = props;
+    const { children, classname, error, errorMessage, links, loaded } = props;
     return (
         <ErrorBoundary>
             <Header>
-                <MainNavigation/>
+                {(links && links.length > 0) && <MainNavBar links={links}/>}
             </Header>
 
             <main id={'main-content'} className={classnames(

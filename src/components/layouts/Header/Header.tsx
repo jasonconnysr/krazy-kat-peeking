@@ -16,14 +16,16 @@ const Header : React.FC<Props> = props => {
             {member => (
                 <>
                     <header className={styles.block}>
-                        <LogoLink
-                            href={'/home'}
-                            format={'full'}
-                        />
+                        <nav className={styles.nav}>
+                            <LogoLink
+                                href={'/home'}
+                                format={'full'}
+                            />
 
-                        <h1>Welcome to ShopRunner {member.firstName} {member.lastName}!</h1>
+                            <h1>Welcome to ShopRunner {member.firstName} {member.lastName}!</h1>
 
-                        <Auth/>
+                            <Auth/>
+                        </nav>
                     </header>
 
                     {children}

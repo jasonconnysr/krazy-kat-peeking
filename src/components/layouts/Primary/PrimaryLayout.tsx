@@ -5,19 +5,20 @@ import Loading from '../../Loading';
 import Footer from '../Footer';
 import { FatFooter } from './FatFooter/FatFooter';
 import Header from '../Header';
-import MainNavigation from '../MainNavigation';
+import MainNavBar from '../MainNavBar';
 import styles from './PrimaryLayout.scss'
 import classnames from 'classnames';
 
-interface Props {
-    classname?: string;
+interface IPrimaryLayoutProps {
+    classes?: string;
     error: boolean,
     errorMessage: string | null,
+    links?: Array<MainNavBarLink>,
     loaded: boolean;
 }
 
-const PrimaryLayout : React.FC<Props> = props => {
-    const { children, classname, error, errorMessage, loaded } = props;
+const PrimaryLayout : React.FC<IPrimaryLayoutProps> = props => {
+    const { children, classes, error, errorMessage, links, loaded } = props;
     return (
         <ErrorBoundary>
             <a
@@ -28,12 +29,12 @@ const PrimaryLayout : React.FC<Props> = props => {
             </a>
 
             <Header>
-                <MainNavigation/>
+                {(links && links.length > 0) && <MainNavBar links={links}/>}
             </Header>
 
             <main id={'main-content'} className={classnames(
                 styles.main,
-                {[`${classname}`]: classname}
+                {[`${classes}`]: classes}
             )}
             >
                 {error && (

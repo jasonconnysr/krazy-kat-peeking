@@ -1,6 +1,15 @@
+@import "../../GlobalStyles/scss/variables/breakpoints";
+
 .block {
+  padding: .5rem 0;
+}
+
+.nav {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: .5rem 2rem;
+  margin: 0 auto;
+  max-width: $screen-xl;
+  min-width: 20em;
+  padding: 0 1.5rem;
 }
