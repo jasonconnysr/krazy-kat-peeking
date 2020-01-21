@@ -1,7 +1,7 @@
+@import "../../GlobalStyles/scss/variables/breakpoints";
 @import "../../GlobalStyles/scss/variables/colors";
 
 .block {
-  border-bottom: 1px solid $brand-color-5;
   border-top: 1px solid $brand-color-5;
   padding: 0 2rem;
 }
@@ -11,7 +11,9 @@
   justify-content: flex-start;
   list-style: none;
   margin: 0 auto;
-  padding: 0;
+  max-width: $screen-xl;
+  min-width: 20em;
+  padding: 0 1.5rem;
 }
 
 .list-item {

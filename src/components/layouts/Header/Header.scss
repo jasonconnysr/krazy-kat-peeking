@@ -1,7 +1,8 @@
 @import "../../GlobalStyles/scss/variables/breakpoints";
+@import "../../GlobalStyles/scss/variables/colors";
 
 .block {
-  padding: .5rem 0;
+  border-bottom: 1px solid $brand-color-5;
 }
 
 .nav {

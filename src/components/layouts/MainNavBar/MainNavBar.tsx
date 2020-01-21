@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import styles from './MainNavBar.scss';
 
+
 interface IMainNavBarProps {
     classes?: string,
     links: Array<MainNavBarLink>

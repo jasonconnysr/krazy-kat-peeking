@@ -146,7 +146,8 @@ module.exports = async (env = {}) => {
                             use: [
                                 {
                                     loader: require.resolve('style-loader')
-                                },                                {
+                                },
+                                {
                                     loader: require.resolve('@teamsupercell/typings-for-css-modules-loader')
                                 },
                                 {

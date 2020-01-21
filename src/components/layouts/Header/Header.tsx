@@ -14,22 +14,20 @@ const Header : React.FC<Props> = props => {
     return (
         <MemberContext.Consumer>
             {member => (
-                <>
-                    <header className={styles.block}>
-                        <nav className={styles.nav}>
-                            <LogoLink
-                                href={'/home'}
-                                format={'full'}
-                            />
+                <header className={styles.block}>
+                    <nav className={styles.nav}>
+                        <LogoLink
+                            href={'/home'}
+                            format={'full'}
+                        />
 
-                            <h1>Welcome to ShopRunner {member.firstName} {member.lastName}!</h1>
+                        <h1>Welcome to ShopRunner {member.firstName} {member.lastName}!</h1>
 
-                            <Auth/>
-                        </nav>
-                    </header>
+                        <Auth/>
+                    </nav>
 
                     {children}
-                </>
+                </header>
             )}
         </MemberContext.Consumer>
     );
