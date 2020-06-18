@@ -4,7 +4,6 @@ const resolve = require('resolve');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
-const postcssNormalize = require('postcss-normalize');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -12,24 +11,18 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-const nodeEnv = process.env.NODE_ENV;
-
 module.exports = async (env = {}) => {
-    console.log(`env: ${env.mode}`);
-    console.log(`nodeEnv: ${nodeEnv}`);
+    console.log(env);
 
-    const isLocal = env.mode === 'local';
-    const isProd = env.mode === 'production';
-    const isStageProd = env.mode === 'staging' || isProd;
-    const outputDir = './build';
+    const isDev = env.development;
+    const isProd = env.production;
 
     return {
-        mode: nodeEnv,
+        mode: isDev ? 'development' : 'production',
         bail: isProd,
-        devtool: isLocal ? 'inline-source-map' : 'source-map',
+        devtool: isDev ? 'inline-source-map' : 'source-map',
         entry: {
             krazyKatPeeking: path.join(__dirname, 'src/KrazyKatPeeking.tsx')
         },
@@ -42,18 +35,26 @@ module.exports = async (env = {}) => {
                 disableDotRule: true
             },
             hot: true,
-            port: 3000,
+            port: 3002,
             publicPath: '/'
         },
+        watch: env.watch,
+        watchOptions: {
+            aggregateTimeout: 500,
+            ignored: [
+                'build',
+                'node_modules'
+            ],
+            poll: 1000
+        },
         output: {
-            path: path.resolve(__dirname, outputDir),
-            pathinfo: true,
+            path: path.resolve(__dirname, 'build'),
             filename: '[name].js',
             chunkFilename: 'static/js/[name].chunk.js',
             publicPath: '/',
         },
         optimization: {
-            minimize: isStageProd,
+            minimize: isProd,
             minimizer: [
                 new TerserPlugin({
                     terserOptions: {
@@ -95,6 +96,20 @@ module.exports = async (env = {}) => {
             runtimeChunk: {
                 name: entrypoint => entrypoint.name
             }
+        },
+        resolve: {
+            extensions: [
+                '.mjs',
+                '.web.ts',
+                '.ts',
+                '.web.tsx',
+                '.tsx',
+                '.web.js',
+                '.js',
+                '.json',
+                '.web.jsx',
+                '.jsx',
+            ]
         },
         module: {
             strictExportPresence: true,
@@ -156,7 +171,7 @@ module.exports = async (env = {}) => {
                                         importLoaders: 3,
                                         sourceMap: true,
                                         localsConvention: 'camelCase',
-                                        onlyLocals: isStageProd,
+                                        onlyLocals: isProd,
                                         modules: {
                                             mode: 'local',
                                             localIdentName: '[name]__[local]--[hash:base64:5]',
@@ -170,7 +185,7 @@ module.exports = async (env = {}) => {
                                         sourceMap: true,
                                         ident: 'postcss',
                                         plugins: () => [
-                                            postcssNormalize()
+                                            require('postcss-normalize')
                                         ]
                                     }
                                 },
@@ -210,7 +225,7 @@ module.exports = async (env = {}) => {
                                         sourceMap: true,
                                         ident: 'postcss',
                                         plugins: () => [
-                                            postcssNormalize()
+                                            require('postcss-normalize')
                                         ]
                                     }
                                 },
@@ -270,17 +285,13 @@ module.exports = async (env = {}) => {
             new CopyWebpackPlugin([
                 {
                     from: path.resolve(__dirname, 'public'),
-                    to: path.resolve(__dirname, outputDir)
+                    to: path.resolve(__dirname, 'build')
                 }
             ]),
             new ModuleNotFoundPlugin(path.resolve(__dirname, '.')),
             new webpack.HotModuleReplacementPlugin(),
-            isLocal && new CaseSensitivePathsPlugin(),
-            isLocal && new WatchMissingNodeModulesPlugin(path.resolve(__dirname, 'node_modules')),
-            isStageProd && new MiniCssExtractPlugin({
-                filename: 'static/css/[name].[contenthash:8].css',
-                chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-            }),
+            isDev && new CaseSensitivePathsPlugin(),
+            isDev && new WatchMissingNodeModulesPlugin(path.resolve(__dirname, 'node_modules')),
             new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
             new ForkTsCheckerWebpackPlugin({
                 typescript: resolve.sync('typescript', {
@@ -296,29 +307,6 @@ module.exports = async (env = {}) => {
             new webpack.WatchIgnorePlugin([
                 /scss\.d\.ts$/
             ])
-        ].filter(Boolean),
-        resolve: {
-            extensions: [
-                '.mjs',
-                '.web.ts',
-                '.ts',
-                '.web.tsx',
-                '.tsx',
-                '.web.js',
-                '.js',
-                '.json',
-                '.web.jsx',
-                '.jsx',
-            ]
-        },
-        watch: env.watch,
-        watchOptions: {
-            aggregateTimeout: 500,
-            ignored: [
-                'build',
-                'node_modules'
-            ],
-            poll: 1000
-        }
+        ].filter(Boolean)
     }
 };

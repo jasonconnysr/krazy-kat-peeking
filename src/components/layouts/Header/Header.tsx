@@ -21,7 +21,7 @@ const Header : React.FC<Props> = props => {
                             format={'full'}
                         />
 
-                        <h1>Welcome to ShopRunner {member.firstName} {member.lastName}!</h1>
+                        <h1>Welcome {member.firstName} {member.lastName}!</h1>
 
                         <Auth/>
                     </nav>

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './scss/base/all.scss';
-import './fonts/all.scss';
 
 
 interface IThemeProviderProps {

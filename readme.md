@@ -4,7 +4,7 @@ Lightweight boilerplate for React with TypeScript.
 
 ## Requirements
 
-- Node v12.10.0
+- Node v12.13.0
 - React 16.12
 
 ### Start front end

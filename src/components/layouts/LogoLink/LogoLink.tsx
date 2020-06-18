@@ -19,7 +19,9 @@ export const LogoLink : React.FC<Props> = props => {
                 {[styles.blockFull] : format === 'full'},
                 {[styles.blockLogo] : format === 'logo'}
             )}
-            aria-label={'ShopRunner'}
-        />
+            aria-label={'Logo'}
+        >
+            Logo
+        </Link>
     );
 };
